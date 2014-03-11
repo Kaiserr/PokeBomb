@@ -1,0 +1,52 @@
+package model;
+
+import java.io.File;
+import java.util.ArrayList;
+
+import model.elements.Player;
+
+public class Game {
+
+	private Grille plateau;
+	private ArrayList<Player> joueurs;
+	
+	public Game(){
+		joueurs = new ArrayList<Player>();
+		plateau = new Grille(new File("resources/maps/map2.txt"));
+		//start();
+	}
+	
+	public void addPlayer(Player j){
+		joueurs.add(j);
+	}
+	
+	public void start(){
+		plateau.addPlayers(joueurs);
+		int tmp=0;
+		for(Player p:joueurs){
+			plateau.setPlayerCase(tmp, plateau.getCasesDepart().get(tmp));
+			tmp++;
+		}
+	
+	}
+	
+	public static void main(String[] args) {
+		new Game();
+	}
+
+	public Grille getPlateau() {
+		return plateau;
+	}
+
+	public void setPlateau(Grille plateau) {
+		this.plateau = plateau;
+	}
+
+	public ArrayList<Player> getJoueurs() {
+		return joueurs;
+	}
+
+	public void setJoueurs(ArrayList<Player> joueurs) {
+		this.joueurs = joueurs;
+	}
+}
