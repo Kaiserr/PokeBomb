@@ -29,10 +29,6 @@ public class Game {
 		}
 	
 	}
-	
-	public static void main(String[] args) {
-		new Game();
-	}
 
 	public Grille getPlateau() {
 		return plateau;

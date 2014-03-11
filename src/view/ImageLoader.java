@@ -10,28 +10,31 @@ import model.elements.Player;
 public class ImageLoader {
 
 	public Image getPlayer(int dir,Player p){
-		switch (dir){
-		case AbstractElement.HAUT:
-			if(p.isFantom())
-				return  new ImageIcon("resources/images/spectrumHAUT.png").getImage();
-			return new ImageIcon("resources/images/PlayerHAUT.png").getImage();
-		case AbstractElement.BAS:
-			if(p.isFantom())
-				return  new ImageIcon("resources/images/spectrumBAS.png").getImage();
-			return new ImageIcon("resources/images/PlayerBAS.png").getImage();
-		case AbstractElement.DROITE:
-			if(p.isFantom())
-				return  new ImageIcon("resources/images/spectrumDROITE.png").getImage();
-			return new ImageIcon("resources/images/PlayerDROITE.png").getImage();
-		case AbstractElement.GAUCHE:
-			if(p.isFantom())
-				return  new ImageIcon("resources/images/spectrumGAUCHE.png").getImage();
-			return new ImageIcon("resources/images/PlayerGAUCHE.png").getImage();
-		default:
-			if(p.isFantom())
-				return  new ImageIcon("resources/images/spectrumBAS.png").getImage();
-			return new ImageIcon("resources/images/PlayerBAS.png").getImage();
-		}
+		if(!p.isDead()){
+			switch (dir){
+			case AbstractElement.HAUT:
+				if(p.isFantom())
+					return  new ImageIcon("resources/images/spectrumHAUT.png").getImage();
+				return new ImageIcon("resources/images/PlayerHAUT.png").getImage();
+			case AbstractElement.BAS:
+				if(p.isFantom())
+					return  new ImageIcon("resources/images/spectrumBAS.png").getImage();
+				return new ImageIcon("resources/images/PlayerBAS.png").getImage();
+			case AbstractElement.DROITE:
+				if(p.isFantom())
+					return  new ImageIcon("resources/images/spectrumDROITE.png").getImage();
+				return new ImageIcon("resources/images/PlayerDROITE.png").getImage();
+			case AbstractElement.GAUCHE:
+				if(p.isFantom())
+					return  new ImageIcon("resources/images/spectrumGAUCHE.png").getImage();
+				return new ImageIcon("resources/images/PlayerGAUCHE.png").getImage();
+			default:
+				if(p.isFantom())
+					return  new ImageIcon("resources/images/spectrumBAS.png").getImage();
+				return new ImageIcon("resources/images/PlayerBAS.png").getImage();
+			}
+		}else
+			return  new ImageIcon("resources/images/tombStone.png").getImage();
 	}
 	
 	public Image getTerrain(int type){

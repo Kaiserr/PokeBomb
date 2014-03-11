@@ -6,7 +6,7 @@ public class Player extends AbstractElement{
 	private int direction,pv,maxPv,lvl, nbBombs, radiusPower,power,xp,maxXp;
 	private String nom;
 	private Case position;
-	private boolean fantom=false;
+	private boolean fantom=false,dead=false;
 	
 	public Player(String nom,Case position){
 		type="player";
@@ -150,6 +150,18 @@ public class Player extends AbstractElement{
 	}
 
 	public void setFantom(boolean fantom) {
+		if(fantom==true)
+			pv=1;
 		this.fantom = fantom;
+	}
+
+	public boolean isDead() {
+		return dead;
+	}
+
+	public void setDead(boolean dead) {
+		this.dead = dead;
+		if(dead==true)
+			setPv(0);
 	}
 }

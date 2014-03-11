@@ -32,14 +32,12 @@ public class Bomb extends AbstractElement implements Runnable{
 	public void explode(){
 		int nbCasse=0;
 		ArrayList<Case> aoe = getAOE(proprio.getRadiusPower());
+		ArrayList<Player> lostHealth = new ArrayList<Player>();
 		for(Case c : aoe){
 			c.ajouterElement(new Fire(this, c, AbstractElement.HAUT));
 			for(CaseElement ce : c.getElements()){
 				if(ce.getType().equals("player")){
-					((Player)ce).setPv(((Player)ce).getPv()-power);
-					gg.repaint();
-					if(((Player)ce).getPv()<=0)
-						((Player)ce).setFantom(true);
+					lostHealth.add((Player)ce);
 				}
 			}
 			gg.repaint();
@@ -61,6 +59,15 @@ public class Bomb extends AbstractElement implements Runnable{
 		position.setTraversable(true);
 		position.removeElement(this);
 		proprio.addXp(nbCasse);
+		for(Player p:lostHealth){
+			p.setPv(p.getPv()-power);
+			gg.repaint();
+			if(p.getPv()<=0 && !p.isFantom())
+				p.setFantom(true);
+			else if(p.getPv()<=0 && p.isFantom())
+				p.setDead(true);
+			
+		}
 		gg.repaint();
 	}
 	

@@ -27,45 +27,46 @@ public class KeyboardListener implements KeyListener{
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-
-		switch (e.getKeyCode()){
-		
-			case KeyEvent.VK_UP:
-				if(g.getJoueur(0).getDirection()==AbstractElement.HAUT)
-					g.deplacerJoueur(0,AbstractElement.HAUT);
-				else
-					g.getJoueur(0).orienter(AbstractElement.HAUT);
-				break;
-			case KeyEvent.VK_DOWN:
-				if(g.getJoueur(0).getDirection()==AbstractElement.BAS)
-					g.deplacerJoueur(0,AbstractElement.BAS);
-				else
-					g.getJoueur(0).orienter(AbstractElement.BAS);
-				break;
-			case KeyEvent.VK_RIGHT:
-				if(g.getJoueur(0).getDirection()==AbstractElement.DROITE)
-					g.deplacerJoueur(0,AbstractElement.DROITE);
-				else
-					g.getJoueur(0).orienter(AbstractElement.DROITE);
-				break;
-			case KeyEvent.VK_LEFT:
-				if(g.getJoueur(0).getDirection()==AbstractElement.GAUCHE)
-					g.deplacerJoueur(0,AbstractElement.GAUCHE);
-				else
-					g.getJoueur(0).orienter(AbstractElement.GAUCHE);
-				break;
-			case KeyEvent.VK_SPACE:
-				g.poserBombe(gg,g.getJoueur(0));
-				
-				break;
-				
-			/*case KeyEvent.VK_W:
-				g.getJoueur(0).setRadiusPower(g.getJoueur(0).getRadiusPower()+1);
-				break;
-			case KeyEvent.VK_X:
-				g.getJoueur(0).setNbBombs(g.getJoueur(0).getNbBombs()+1);
-				break;*/
-				
+		if(!g.getJoueur(0).isDead()){
+			switch (e.getKeyCode()){
+			
+				case KeyEvent.VK_UP:
+					if(g.getJoueur(0).getDirection()==AbstractElement.HAUT)
+						g.deplacerJoueur(0,AbstractElement.HAUT);
+					else
+						g.getJoueur(0).orienter(AbstractElement.HAUT);
+					break;
+				case KeyEvent.VK_DOWN:
+					if(g.getJoueur(0).getDirection()==AbstractElement.BAS)
+						g.deplacerJoueur(0,AbstractElement.BAS);
+					else
+						g.getJoueur(0).orienter(AbstractElement.BAS);
+					break;
+				case KeyEvent.VK_RIGHT:
+					if(g.getJoueur(0).getDirection()==AbstractElement.DROITE)
+						g.deplacerJoueur(0,AbstractElement.DROITE);
+					else
+						g.getJoueur(0).orienter(AbstractElement.DROITE);
+					break;
+				case KeyEvent.VK_LEFT:
+					if(g.getJoueur(0).getDirection()==AbstractElement.GAUCHE)
+						g.deplacerJoueur(0,AbstractElement.GAUCHE);
+					else
+						g.getJoueur(0).orienter(AbstractElement.GAUCHE);
+					break;
+				case KeyEvent.VK_SPACE:
+					g.poserBombe(gg,g.getJoueur(0));
+					
+					break;
+					
+				/*case KeyEvent.VK_W:
+					g.getJoueur(0).setRadiusPower(g.getJoueur(0).getRadiusPower()+1);
+					break;
+				case KeyEvent.VK_X:
+					g.getJoueur(0).setNbBombs(g.getJoueur(0).getNbBombs()+1);
+					break;*/
+					
+			}
 		}
 		for(CaseElement ce : g.getPlayerCase(0).getElements()){
 			if(ce.getType().equals("potion"))
