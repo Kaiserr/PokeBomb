@@ -12,7 +12,7 @@ public class Game {
 	
 	public Game(){
 		joueurs = new ArrayList<Player>();
-		plateau = new Grille(new File("resources/maps/map2.txt"));
+		plateau = new Grille(new File("resources/maps/map1.txt"));
 		//start();
 	}
 	
@@ -27,7 +27,6 @@ public class Game {
 			plateau.setPlayerCase(tmp, plateau.getCasesDepart().get(tmp));
 			tmp++;
 		}
-	
 	}
 
 	public Grille getPlateau() {

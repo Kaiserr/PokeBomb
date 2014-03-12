@@ -35,7 +35,7 @@ public class Main {
 		}
 
 		JFrame jf = new JFrame("PokeBomb !");
-		Game g = new Game();
+		/*Game g = new Game();
 		JPanel mainPane = new JPanel(new BorderLayout());
 		jf.setContentPane(mainPane);
 		GrilleGraphique gg = new GrilleGraphique(g.getPlateau());
@@ -44,13 +44,13 @@ public class Main {
 		// CompPanel competences = new CompPanel(null);
 		// mainPane.add(competences,BorderLayout.SOUTH);
 		gg.addKeyListener(new KeyboardListener(gg));
-
-		//jf.setContentPane(new HomePane(jf));
+*/
+		jf.setContentPane(new HomePane(jf));
 
 		jf.setIconImage(new ImageIcon("resources/images/BOMB.png").getImage());
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jf.setLocationRelativeTo(null);
-		jf.setMinimumSize(new Dimension(400, 400));
+		jf.setMinimumSize(new Dimension(500, 500));
 		
 		jf.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		jf.setVisible(true);
