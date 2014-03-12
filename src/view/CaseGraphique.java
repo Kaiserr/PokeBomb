@@ -38,19 +38,20 @@ public class CaseGraphique extends JPanel {
 			g.drawRect(getWidth()-20, 5,10, getHeight()-10);
 			
 			double percentLife=getPercentLife(pos.getJoueur());
-			
+			double percentMissing=getPercentLifeMissing(pos.getJoueur());
 			int height=(int)(percentLife*(getHeight()-11))/100;
+			int offSet=(int)(percentMissing*(getHeight()-11))/100;
 			if(percentLife>=50){
 				g.setColor(Color.GREEN);
 			}else if(percentLife>=33){
 				g.setColor(Color.ORANGE);
 			}else
 				g.setColor(Color.RED);
-			g.fillRect(getWidth()-19, 6, 9, height);
+			g.fillRect(getWidth()-19, 6+offSet, 9, height);
 			
 			g.setColor(Color.WHITE);
 			
-			g.drawString(pos.getJoueur().getNom(),5, 10);
+			g.drawString(pos.getJoueur().getNom(),8, 10);
 		}
 		
 		for(CaseElement ce : pos.getElements())
@@ -61,8 +62,11 @@ public class CaseGraphique extends JPanel {
 	}
 	
 	public double getPercentLife(Player p){
-		System.out.println(p.getPv());
 	    return ((100*p.getPv())/p.getMaxPv());
+	}
+	
+	public double getPercentLifeMissing(Player p){
+	    return ((100*(p.getMaxPv()-p.getPv()))/p.getMaxPv());
 	}
 	
 	public String toString(){

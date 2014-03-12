@@ -3,6 +3,7 @@ package model;
 import java.io.File;
 import java.util.ArrayList;
 
+import util.StdAudio;
 import model.elements.Player;
 
 public class Game {
@@ -27,6 +28,7 @@ public class Game {
 			plateau.setPlayerCase(tmp, plateau.getCasesDepart().get(tmp));
 			tmp++;
 		}
+		
 	}
 
 	public Grille getPlateau() {

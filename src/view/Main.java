@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
+import util.StdAudio;
 import model.Game;
 import controller.KeyboardListener;
 
@@ -55,6 +56,7 @@ public class Main {
 		
 		jf.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		jf.setVisible(true);
+		
 
 	}
 

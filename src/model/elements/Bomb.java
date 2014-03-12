@@ -6,6 +6,7 @@ import model.Grille;
 import model.cases.AbstractCase;
 import model.cases.Case;
 import util.Direction;
+import util.StdAudio;
 import view.GrilleGraphique;
 
 public class Bomb extends AbstractElement implements Runnable{
@@ -16,7 +17,7 @@ public class Bomb extends AbstractElement implements Runnable{
 	private Thread bombThread;
 	private int delay,power;
 	private Player proprio;
-	
+	private StdAudio audio=new StdAudio("resources/sounds/explode.wav");
 	
 	public Bomb(Grille plateau,Case pos,GrilleGraphique gg, int delay,Player proprio,int power){
 		this.plateau=plateau;
@@ -33,9 +34,11 @@ public class Bomb extends AbstractElement implements Runnable{
 	}
 	
 	public void explode(){
+		
 		int nbCasse=0;
 		ArrayList<Case> aoe = getAOE(proprio.getRadiusPower());
 		ArrayList<Player> lostHealth = new ArrayList<Player>();
+		audio.run();
 		for(Case c : aoe){
 			//c.ajouterElement(new Fire(this, c, AbstractElement.HAUT));
 			c.ajouterElement(new Fire(this, c, Direction.HAUT));

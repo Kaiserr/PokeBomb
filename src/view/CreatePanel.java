@@ -1,5 +1,8 @@
 package view;
 
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -10,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.Border;
 
 import controller.CharacterChoiceListener;
 
@@ -19,7 +23,8 @@ public class CreatePanel extends JPanel {
 	private JButton next = new JButton("Commencer");
 	private JTextField nameField = new JTextField();
 	private HomePane hp;
-
+	private int selected=0;
+	
 	public CreatePanel(HomePane hp) {
 		this.hp=hp;
 		CharacterChoiceListener ccl = new CharacterChoiceListener(this);
@@ -82,6 +87,8 @@ public class CreatePanel extends JPanel {
 		c.gridy = 5;
 		add(next, c);
 		next.addActionListener(ccl);
+		
+		setSelected(selected);
 
 	}
 
@@ -121,5 +128,15 @@ public class CreatePanel extends JPanel {
 
 	public void setHp(HomePane hp) {
 		this.hp = hp;
+	}
+
+	public int getSelected() {
+		return selected;
+	}
+
+	public void setSelected(int selected) {
+		trainerChoice.get(this.selected).setBackground(Color.LIGHT_GRAY);
+		this.selected = selected;
+		trainerChoice.get(selected).setBackground(new Color(0,155,61));
 	}
 }
