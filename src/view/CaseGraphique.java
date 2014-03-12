@@ -29,20 +29,28 @@ public class CaseGraphique extends JPanel {
 		g.drawImage(il.getTerrain(pos.getType()), 0, 0, getWidth(), getHeight(), this);
 		
 		if(pos.containPlayer()){
-			g.drawImage(il.getPlayer(pos.getJoueur().getDirection(),pos.getJoueur()), 0, 5, getWidth(), getHeight()-5, this);
+			
+			SpriteLoader sl = new SpriteLoader();
+			g.drawImage(sl.getTrainer(pos.getJoueur()).getImage(), 5, 5, getWidth()-10, getHeight()-5, this);
+			
+			//BARRE DE VIE
 			g.setColor(Color.BLACK);
-			g.drawRect(10, 5, getWidth()-20, 10);
+			g.drawRect(getWidth()-20, 5,10, getHeight()-10);
+			
 			double percentLife=getPercentLife(pos.getJoueur());
-			int width=(int)(percentLife*(getWidth()-22))/100;
+			
+			int height=(int)(percentLife*(getHeight()-11))/100;
 			if(percentLife>=50){
 				g.setColor(Color.GREEN);
 			}else if(percentLife>=33){
 				g.setColor(Color.ORANGE);
 			}else
 				g.setColor(Color.RED);
-			g.fillRect(11, 6, width, 8);
+			g.fillRect(getWidth()-19, 6, 9, height);
+			
 			g.setColor(Color.WHITE);
-			g.drawString(pos.getJoueur().getNom(),5, getHeight()-5);
+			
+			g.drawString(pos.getJoueur().getNom(),5, 10);
 		}
 		
 		for(CaseElement ce : pos.getElements())

@@ -4,13 +4,13 @@ import util.Direction;
 import model.cases.Case;
 
 public class Player extends AbstractElement{
-	private int pv,maxPv,lvl, nbBombs, radiusPower,power,xp,maxXp;
+	private int skin=3 ,pv,maxPv,lvl, nbBombs, radiusPower,power,xp,maxXp;
 	//private int direction,pv,maxPv,lvl, nbBombs, radiusPower,power,xp,maxXp;
 	private String nom;
 	private Case position;
 	private boolean fantom=false,dead=false;
 	
-	public Player(String nom,Case position){
+	public Player(String nom,int skin,Case position){
 		type="player";
 		lvl=1;
 		pv=100;
@@ -23,7 +23,7 @@ public class Player extends AbstractElement{
 		xp=0;
 		maxXp=3;
 		this.position=position;
-		
+		this.skin=skin;
 		setDirection(Direction.BAS);
 	}
 	
@@ -174,5 +174,13 @@ public class Player extends AbstractElement{
 		this.dead = dead;
 		if(dead==true)
 			setPv(0);
+	}
+
+	public int getSkin() {
+		return skin;
+	}
+
+	public void setSkin(int skin) {
+		this.skin = skin;
 	}
 }

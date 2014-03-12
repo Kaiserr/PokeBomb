@@ -23,8 +23,8 @@ public class HomeListener implements ActionListener{
 		JButton source = (JButton)e.getSource();
 		
 		if(source==pane.getSolo()){
-			CreatePanel pane=new CreatePanel();
-			frame.setContentPane(pane);
+			CreatePanel createPane=new CreatePanel(pane);
+			frame.setContentPane(createPane);
 			frame.repaint();
 			frame.validate();
 		}else if(source==pane.getMulti()){

@@ -10,12 +10,14 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import model.Game;
 import controller.HomeListener;
 
 public class HomePane extends JPanel {
 
 	private JButton solo, multi, online;
 	private JFrame frame;
+	private Game g = new Game();
 
 	public HomePane(JFrame frame) {
 		super(new GridBagLayout());
@@ -71,6 +73,22 @@ public class HomePane extends JPanel {
 
 	public void setOnline(JButton online) {
 		this.online = online;
+	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+
+	public Game getG() {
+		return g;
+	}
+
+	public void setG(Game g) {
+		this.g = g;
 	}
 
 }

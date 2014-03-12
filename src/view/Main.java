@@ -46,6 +46,7 @@ public class Main {
 		gg.addKeyListener(new KeyboardListener(gg));
 */
 		jf.setContentPane(new HomePane(jf));
+		
 
 		jf.setIconImage(new ImageIcon("resources/images/BOMB.png").getImage());
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

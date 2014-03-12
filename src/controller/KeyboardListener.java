@@ -121,10 +121,10 @@ public class KeyboardListener implements KeyListener{
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
-		
+		System.out.println("pressed !");
 		if(!g.getJoueur(0).isDead()){
 			switch (e.getKeyCode()){
-			
+				
 				case KeyEvent.VK_UP:
 					if(g.getJoueur(0).getDirection()==Direction.HAUT)
 						g.deplacerJoueur(0,Direction.HAUT);

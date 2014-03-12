@@ -18,7 +18,7 @@ public class CreateListener implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		Player p = new Player(cpp.getNameField().getText(),null);
+		Player p = new Player(cpp.getNameField().getText(),0,null);
 		//g.addPlayer(p);
 		cpp.getSp().addPlayer(p);
 	}
