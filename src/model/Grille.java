@@ -13,6 +13,7 @@ import model.elements.Bomb;
 import model.elements.CaseElement;
 import model.elements.Player;
 import model.elements.Potion;
+import util.Direction;
 import view.GrilleGraphique;
 
 public class Grille {
@@ -75,7 +76,7 @@ public class Grille {
 		}
 
 	}
-
+	/*
 	public Case getCaseFront(Player p) {
 		int tmp = p.getDirection();
 		int x = p.getPosition().getX();
@@ -97,7 +98,31 @@ public class Grille {
 			return null;
 		}
 	}
-
+*/
+	
+	public Case getCaseFront(Player p) {
+		
+		int x = p.getPosition().getX();
+		int y = p.getPosition().getY();
+		
+		switch (p.getDirection()) {
+			case HAUT:
+				if (y - 1 > 0)
+					return getCaseAt(x, y - 1);
+			case BAS:
+				if (y + 1 < height)
+					return getCaseAt(x, y + 1);
+			case DROITE:
+				if (x + 1 < width)
+					return getCaseAt(x + 1, y);
+			case GAUCHE:
+				if (x - 1 > 0)
+					return getCaseAt(x - 1, y);
+			default:
+				return null;
+		}
+	}
+	
 	public Bomb poserBombe(GrilleGraphique gg, Player proprio) {
 		if (getCaseFront(proprio) != null
 				&& getCaseFront(proprio).getType() == 1
@@ -129,7 +154,7 @@ public class Grille {
 		}
 		return nbBombs;
 	}
-	
+	/*
 	public void deplacerJoueur(int num,int dir) {
 		Case currentPos = joueurs.get(num).getPosition();
 		int x = currentPos.getX();
@@ -168,7 +193,47 @@ public class Grille {
 		}
 
 	}
+*/
+	
+	public void deplacerJoueur(int num,Direction dir) {
+		Case currentPos = joueurs.get(num).getPosition();
+		int x = currentPos.getX();
+		int y = currentPos.getY();
 
+		int newX = x;
+		int newY = y;
+
+		switch (dir) {
+			case HAUT:
+				newX = x;
+				newY = y - 1;
+				break;
+			case BAS:
+				newX = x;
+				newY = y + 1;
+				break;
+			case DROITE:
+				newX = x + 1;
+				newY = y;
+				break;
+			case GAUCHE:
+				newX = x - 1;
+				newY = y;
+				break;
+			default:
+				break;
+		}
+
+		if (getCaseAt(newX, newY).estTraversable()&& !getCaseAt(newX, newY).containPlayer()) {
+
+			getCaseAt(x, y).removeElement(joueurs.get(num));
+			getCaseAt(newX, newY).ajouterElement(joueurs.get(num));
+			// System.out.println("new X: " + newX + " new Y: " + newY);
+			getJoueur(num).setPosition(getCaseAt(newX, newY));
+		}
+
+	}
+	
 	public Case getCaseAt(int x, int y) {
 		if (x >= 0 && x < width && y >= 0 && y < height)
 			return plateau[x][y];

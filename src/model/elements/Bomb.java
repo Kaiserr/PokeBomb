@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import model.Grille;
 import model.cases.AbstractCase;
 import model.cases.Case;
+import util.Direction;
 import view.GrilleGraphique;
 
 public class Bomb extends AbstractElement implements Runnable{
@@ -27,6 +28,8 @@ public class Bomb extends AbstractElement implements Runnable{
 		bombThread.start();
 		type="bomb";
 		this.proprio = proprio;
+		
+		setDirection(Direction.FIXE);
 	}
 	
 	public void explode(){
@@ -34,7 +37,8 @@ public class Bomb extends AbstractElement implements Runnable{
 		ArrayList<Case> aoe = getAOE(proprio.getRadiusPower());
 		ArrayList<Player> lostHealth = new ArrayList<Player>();
 		for(Case c : aoe){
-			c.ajouterElement(new Fire(this, c, AbstractElement.HAUT));
+			//c.ajouterElement(new Fire(this, c, AbstractElement.HAUT));
+			c.ajouterElement(new Fire(this, c, Direction.HAUT));
 			for(CaseElement ce : c.getElements()){
 				if(ce.getType().equals("player")){
 					lostHealth.add((Player)ce);

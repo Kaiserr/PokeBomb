@@ -1,9 +1,11 @@
 package model.elements;
 
+import util.Direction;
 import model.cases.Case;
 
 public class Player extends AbstractElement{
-	private int direction,pv,maxPv,lvl, nbBombs, radiusPower,power,xp,maxXp;
+	private int pv,maxPv,lvl, nbBombs, radiusPower,power,xp,maxXp;
+	//private int direction,pv,maxPv,lvl, nbBombs, radiusPower,power,xp,maxXp;
 	private String nom;
 	private Case position;
 	private boolean fantom=false,dead=false;
@@ -15,17 +17,26 @@ public class Player extends AbstractElement{
 		maxPv=100;
 		power=30;
 		this.nom=nom;
-		direction=AbstractElement.BAS;
+		//direction=AbstractElement.BAS;
 		nbBombs=1;
 		radiusPower=1;
 		xp=0;
 		maxXp=3;
 		this.position=position;
+		
+		setDirection(Direction.BAS);
 	}
 	
+	/*
 	public void orienter(int dir){
 		if(dir<6 && dir>0)
 			direction=dir;
+
+	}
+	*/
+	
+	public void orienter(Direction direction){
+		setDirection(direction);
 	}
 	
 	public void addXp(int xpToAdd){
@@ -56,7 +67,7 @@ public class Player extends AbstractElement{
 		if(pv>maxPv)
 			pv=maxPv;
 	}
-
+/*
 	public int getDirection() {
 		return direction;
 	}
@@ -64,7 +75,7 @@ public class Player extends AbstractElement{
 	public void setDirection(int direction) {
 		this.direction = direction;
 	}
-
+*/
 	public int getPv() {
 		return pv;
 	}
