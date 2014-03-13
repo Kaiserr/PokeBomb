@@ -1,10 +1,8 @@
-package view;
+package util;
 
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
-
-import util.Direction;
 
 import model.elements.AbstractElement;
 import model.elements.Player;

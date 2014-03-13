@@ -10,6 +10,7 @@ import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
 import util.StdAudio;
+import view.menus.HomePane;
 import model.Game;
 import controller.KeyboardListener;
 

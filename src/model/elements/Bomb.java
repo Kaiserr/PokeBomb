@@ -11,7 +11,7 @@ import model.cases.AbstractCase;
 import model.cases.Case;
 import util.Direction;
 import util.StdAudio;
-import view.GrilleGraphique;
+import view.game.GrilleGraphique;
 
 public class Bomb extends AbstractElement implements Runnable {
 

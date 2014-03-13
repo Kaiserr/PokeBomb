@@ -1,4 +1,4 @@
-package view;
+package util;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -10,20 +10,21 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 import model.elements.Player;
-import util.Direction;
 
 public class SpriteLoader {
 
 	private ArrayList<BufferedImage> trainersIcon = new ArrayList<BufferedImage>();
 	private ArrayList<BufferedImage[]> trainersSprite = new ArrayList<BufferedImage[]>();
+	private ArrayList<BufferedImage[]> allbombs = new ArrayList<BufferedImage[]>();
 	private BufferedImage[] spectrum = new BufferedImage[4];
 	
 	private File trainersIconFile = new File("resources/images/trainersIcon.png");
 	private File trainersSpriteFile = new File("resources/images/trainersSpriteSheet.png");
 	private File spectrumSpriteFile = new  File("resources/images/SpectrumSpriteSheet.png");
 	private File graveStoneSprite = new  File("resources/images/tombStone.png");
+	private File bombs = new  File("resources/images/bombSprite.png");
 	
-	private BufferedImage trainersIconImage,trainersSpriteImage,spectrumSprites,graveStone;
+	private BufferedImage trainersIconImage,trainersSpriteImage,spectrumSprites,graveStone,bombSprite;
 	
 	
 	public SpriteLoader(){
@@ -32,14 +33,40 @@ public class SpriteLoader {
 			trainersSpriteImage = ImageIO.read(trainersSpriteFile);
 			spectrumSprites = ImageIO.read(spectrumSpriteFile);
 			graveStone=ImageIO.read(graveStoneSprite);
+			bombSprite=ImageIO.read(bombs);
 			initTrainersIcons();
 			initTrainersSprite();
+			initBombsSprite();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
+	private void initBombsSprite() {
+		for(int col=0;col<3;col++){
+			for(int line=0;line<2;line++){
+				if(line==0){
+					allbombs.add(new BufferedImage[2]);
+					allbombs.get(col)[line]=bombSprite.getSubimage((col*40), (line*40), 40, 40);
+				}else{
+					allbombs.get(col)[line]=bombSprite.getSubimage((col*40), (line*40), 40, 40);
+				}
+			}
+		}
+		
+	}
+	
+	public ImageIcon getBomb(int num,int evol){
+		BufferedImage toRender = allbombs.get(num)[evol];
+		Graphics2D graphics2D = toRender.createGraphics();
+		graphics2D.drawImage(toRender, 0, 0, toRender.getWidth(), toRender.getHeight(), null);
+		graphics2D.dispose();
+		ImageIcon toReturn = new ImageIcon(toRender);
+		
+		return toReturn;
+	} 
+
 	public void initTrainersIcons(){
 		for(int col=0;col<12;col++){
 			trainersIcon.add(trainersIconImage.getSubimage((col*60), 0, 60, 60));

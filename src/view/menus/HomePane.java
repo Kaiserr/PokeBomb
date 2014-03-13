@@ -1,4 +1,4 @@
-package view;
+package view.menus;
 
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;

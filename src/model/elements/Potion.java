@@ -2,7 +2,7 @@ package model.elements;
 
 import model.Grille;
 import model.cases.Case;
-import view.GrilleGraphique;
+import view.game.GrilleGraphique;
 
 public class Potion extends AbstractElement{
 

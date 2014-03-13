@@ -1,21 +1,24 @@
-package view;
+package view.game;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
-import util.Direction;
-
 import model.cases.Case;
+import model.elements.Bomb;
 import model.elements.CaseElement;
 import model.elements.Player;
+import util.Direction;
+import util.ImageLoader;
+import util.SpriteLoader;
 
 public class CaseGraphique extends JPanel {
 
 	private Case pos;
 	private ImageLoader il;
 	private GrilleGraphique cg;
+	private SpriteLoader sl = new SpriteLoader();
 
 	public CaseGraphique(Case pos,GrilleGraphique cg) {
 		super();
@@ -30,7 +33,7 @@ public class CaseGraphique extends JPanel {
 		
 		if(pos.containPlayer()){
 			
-			SpriteLoader sl = new SpriteLoader();
+			
 			g.drawImage(sl.getTrainer(pos.getJoueur()).getImage(), 5, 5, getWidth()-10, getHeight()-5, this);
 			
 			//BARRE DE VIE
@@ -55,9 +58,12 @@ public class CaseGraphique extends JPanel {
 		}
 		
 		for(CaseElement ce : pos.getElements())
-			if(pos.getType()==1)
-				g.drawImage(il.getElement(ce.getType(), Direction.FIXE), 0, 0, getWidth(), getHeight(), this);
-			else if(!ce.getType().equals("fire") && !ce.getType().equals("potion"))
+			if(pos.getType()==1){
+				if(ce.getType().equals("bomb"))
+					g.drawImage(sl.getBomb(((Bomb)ce).getProprio().getBomb(), ((Bomb)ce).getProprio().getBombEvol()).getImage(), 0, 0, getWidth(), getHeight(), this);
+				else
+					g.drawImage(il.getElement(ce.getType(), Direction.FIXE), 0, 0, getWidth(), getHeight(), this);
+			}else if(!ce.getType().equals("fire") && !ce.getType().equals("potion"))
 				g.drawImage(il.getElement(ce.getType(), Direction.FIXE), 0, 0, getWidth(), getHeight(), this);
 	}
 	

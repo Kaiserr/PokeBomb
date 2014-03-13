@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import model.Game;
 import util.StdAudio;
-import view.SidePanel;
+import view.game.SidePanel;
 
 public class StartListener implements ActionListener{
 

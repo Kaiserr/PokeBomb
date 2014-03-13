@@ -5,7 +5,8 @@ import java.awt.event.ActionListener;
 
 import model.Game;
 import model.elements.Player;
-import view.CreatePlayerPanel;
+import view.game.CreatePlayerPanel;
+import view.menus.SkillSelection;
 
 public class CreateListener implements ActionListener{
 
@@ -22,6 +23,23 @@ public class CreateListener implements ActionListener{
 		//g.addPlayer(p);
 		cpp.getSp().addPlayer(p);
 	}
+
+	public Game getG() {
+		return g;
+	}
+
+	public void setG(Game g) {
+		this.g = g;
+	}
+
+	public CreatePlayerPanel getCpp() {
+		return cpp;
+	}
+
+	public void setCpp(CreatePlayerPanel cpp) {
+		this.cpp = cpp;
+	}
+
 	
 	
 }

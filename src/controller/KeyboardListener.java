@@ -8,7 +8,7 @@ import model.elements.AbstractElement;
 import model.elements.CaseElement;
 import model.elements.Potion;
 import util.Direction;
-import view.GrilleGraphique;
+import view.game.GrilleGraphique;
 
 public class KeyboardListener implements KeyListener{
 	

@@ -1,4 +1,4 @@
-package view;
+package view.menus;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -15,26 +15,27 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
+import util.SpriteLoader;
 import controller.CharacterChoiceListener;
 
 public class CreatePanel extends JPanel {
 
 	private ArrayList<JButton> trainerChoice = new ArrayList<JButton>();
 	private JButton next = new JButton("Commencer");
+	private JButton prev = new JButton("Retour au menu");
 	private JTextField nameField = new JTextField();
 	private HomePane hp;
 	private int selected=0;
+	private CharacterChoiceListener ccl = new CharacterChoiceListener(this);
 	
 	public CreatePanel(HomePane hp) {
 		this.hp=hp;
-		CharacterChoiceListener ccl = new CharacterChoiceListener(this);
+		
 		setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
 		c.fill = GridBagConstraints.HORIZONTAL;
 
 		c.insets = new Insets(50, 10, 10, 10);
-
-		c.fill = GridBagConstraints.HORIZONTAL;
 		c.weightx = 0;
 		c.gridx = 1;
 		c.gridy = 0;
@@ -61,7 +62,7 @@ public class CreatePanel extends JPanel {
 			choice.addActionListener(ccl);
 		}
 
-		c.insets = new Insets(10, 50, 10, 10);
+		
 
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.ipady = 0;
@@ -80,13 +81,27 @@ public class CreatePanel extends JPanel {
 		add(nameField, c);
 
 		c.fill = GridBagConstraints.HORIZONTAL;
+
+		c.anchor=GridBagConstraints.LAST_LINE_START;
+		c.ipady = 0;
+		c.weighty = 1.0;
+		c.gridx = 0;
+		c.gridwidth = 1;
+		c.gridy = 6;
+		add(prev, c);
+		prev.addActionListener(ccl);
+		
+
+		c.anchor=GridBagConstraints.LAST_LINE_END;
 		c.ipady = 0;
 		c.weighty = 1.0;
 		c.gridx = 2;
 		c.gridwidth = 1;
-		c.gridy = 5;
+		c.gridy = 6;
 		add(next, c);
 		next.addActionListener(ccl);
+		
+		
 		
 		setSelected(selected);
 
@@ -138,5 +153,21 @@ public class CreatePanel extends JPanel {
 		trainerChoice.get(this.selected).setBackground(Color.LIGHT_GRAY);
 		this.selected = selected;
 		trainerChoice.get(selected).setBackground(new Color(0,155,61));
+	}
+
+	public JButton getPrev() {
+		return prev;
+	}
+
+	public void setPrev(JButton prev) {
+		this.prev = prev;
+	}
+
+	public CharacterChoiceListener getCcl() {
+		return ccl;
+	}
+
+	public void setCcl(CharacterChoiceListener ccl) {
+		this.ccl = ccl;
 	}
 }

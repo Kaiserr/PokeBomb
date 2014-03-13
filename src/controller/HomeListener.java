@@ -6,8 +6,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-import view.CreatePanel;
-import view.HomePane;
+import view.menus.CreatePanel;
+import view.menus.HomePane;
 
 public class HomeListener implements ActionListener{
 	

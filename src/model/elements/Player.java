@@ -4,7 +4,7 @@ import util.Direction;
 import model.cases.Case;
 
 public class Player extends AbstractElement{
-	private int skin=3 ,pv,maxPv,lvl, nbBombs, radiusPower,power,xp,maxXp;
+	private int skin=3 ,pv,maxPv,lvl, nbBombs, radiusPower,power,xp,maxXp,bomb=0,bombEvol=0;
 	//private int direction,pv,maxPv,lvl, nbBombs, radiusPower,power,xp,maxXp;
 	private String nom;
 	private Case position;
@@ -182,5 +182,21 @@ public class Player extends AbstractElement{
 
 	public void setSkin(int skin) {
 		this.skin = skin;
+	}
+
+	public int getBomb() {
+		return bomb;
+	}
+
+	public void setBomb(int bomb) {
+		this.bomb = bomb;
+	}
+
+	public int getBombEvol() {
+		return bombEvol;
+	}
+
+	public void setBombEvol(int bombEvol) {
+		this.bombEvol = bombEvol;
 	}
 }

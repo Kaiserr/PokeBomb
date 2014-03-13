@@ -14,7 +14,7 @@ import model.elements.CaseElement;
 import model.elements.Player;
 import model.elements.Potion;
 import util.Direction;
-import view.GrilleGraphique;
+import view.game.GrilleGraphique;
 
 public class Grille {
 	private Case[][] plateau;

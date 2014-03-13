@@ -1,4 +1,4 @@
-package view;
+package view.game;
 
 import java.awt.GridLayout;
 
@@ -6,6 +6,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import util.ImageLoader;
 import model.elements.Player;
 
 public class PlayerPanel extends JPanel{
@@ -18,7 +19,6 @@ public class PlayerPanel extends JPanel{
 		ImageLoader il = new ImageLoader();
 		add(new JLabel(p.getNom()));
 		add(new JLabel(new ImageIcon("resources/images/PlayerBAS.png")));
-		//add(new JLabel("PV: "+p.getPv()));
-		add(new LifeBar(p));
+		
 	}
 }
