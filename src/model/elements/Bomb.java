@@ -40,7 +40,6 @@ public class Bomb extends AbstractElement implements Runnable {
 		ArrayList<Case> aoe = getAOE(proprio.getRadiusPower());
 		ArrayList<Player> lostHealth = new ArrayList<Player>();
 
-		
 		HomePane.audio.playBackGround("resources/sounds/game/explode");
 
 		for (Case c : aoe) {
@@ -69,24 +68,26 @@ public class Bomb extends AbstractElement implements Runnable {
 
 		position.setTraversable(true);
 		position.removeElement(this);
-		int dead=0;
-		int fantom=0;
-		int touched=0;
+		int dead = 0;
+		int fantom = 0;
+		int touched = 0;
 		for (Player p : lostHealth) {
 			p.setPv(p.getPv() - power);
 			gg.repaint();
-			if (p.getPv() <= 0 && !p.isFantom()){
+			if (p.getPv() <= 0 && !p.isFantom()) {
 				p.setFantom(true);
-				fantom++;
-			}else if (p.getPv() <= 0 && p.isFantom()){
+				if (p != proprio)
+					fantom++;
+			} else if (p.getPv() <= 0 && p.isFantom()) {
 				p.setDead(true);
-				dead++;
+				if (p != proprio)
+					dead++;
 			}
-			if(p!=proprio)
+			if (p != proprio)
 				touched++;
 		}
-		proprio.addXp(nbCasse+(touched*2)+(fantom*3)+(dead*5));
-		
+		proprio.addXp(nbCasse + (touched * 2) + (fantom * 3) + (dead * 5));
+
 		gg.repaint();
 		try {
 			bombThread.sleep(1000);
