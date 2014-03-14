@@ -41,13 +41,13 @@ public class ImageLoader {
 		
 		switch (type){
 		case 1:
-			return new ImageIcon("resources/images/VIDE.png").getImage();
+			return new ImageIcon("resources/images/cases/VIDE.png").getImage();
 		case 2:
-			return new ImageIcon("resources/images/MUR.png").getImage();
+			return new ImageIcon("resources/images/cases/MUR.png").getImage();
 		case 3:
-			return new ImageIcon("resources/images/MUR2.png").getImage();
+			return new ImageIcon("resources/images/cases/MUR2.png").getImage();
 		default:
-			return new ImageIcon("resources/images/VIDE.png").getImage();
+			return new ImageIcon("resources/images/cases/VIDE.png").getImage();
 		}
 		
 	}
@@ -56,15 +56,15 @@ public class ImageLoader {
 		if(type.equals("bomb"))
 			return new ImageIcon("resources/images/BOMB.png").getImage();
 		else if (type.equals("potion")){
-			return new ImageIcon("resources/images/potion.png").getImage();
+			return new ImageIcon("resources/images/elements/potion.png").getImage();
 		}else if(type.equals("fire")){
 			switch(dir){
 				case DROITE:
-					return new ImageIcon("resources/images/fireDROITE.png").getImage();
+					return new ImageIcon("resources/images/elements/fireDROITE.png").getImage();
 				case GAUCHE:
-					return new ImageIcon("resources/images/fireGAUCHE.png").getImage();
+					return new ImageIcon("resources/images/elements/fireGAUCHE.png").getImage();
 				default:
-					return new ImageIcon("resources/images/fireHAUTBAS.png").getImage();
+					return new ImageIcon("resources/images/elements/fireHAUTBAS.png").getImage();
 					
 			}
 		}

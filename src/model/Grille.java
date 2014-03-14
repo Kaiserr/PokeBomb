@@ -76,29 +76,6 @@ public class Grille {
 		}
 
 	}
-	/*
-	public Case getCaseFront(Player p) {
-		int tmp = p.getDirection();
-		int x = p.getPosition().getX();
-		int y = p.getPosition().getY();
-		switch (tmp) {
-		case AbstractElement.HAUT:
-			if (y - 1 > 0)
-				return getCaseAt(x, y - 1);
-		case AbstractElement.BAS:
-			if (y + 1 < height)
-				return getCaseAt(x, y + 1);
-		case AbstractElement.DROITE:
-			if (x + 1 < width)
-				return getCaseAt(x + 1, y);
-		case AbstractElement.GAUCHE:
-			if (x - 1 > 0)
-				return getCaseAt(x - 1, y);
-		default:
-			return null;
-		}
-	}
-*/
 	
 	public Case getCaseFront(Player p) {
 		

@@ -27,10 +27,10 @@ public class StdAudio implements Runnable
     }
 
     //
-    private boolean playSong = false;
-    private AudioInputStream inputStream;
-    private String url;
-    private Clip clip;
+    private static boolean playSong = false;
+    private static AudioInputStream inputStream;
+    private static String url;
+    private static Clip clip;
 
     @Override
     public void run()
@@ -55,24 +55,24 @@ public class StdAudio implements Runnable
         }
     }
 
-    public void playBackGround(String string) // call to play .wav file
+    public static void playBackGround(String string) // call to play .wav file
     {
-        if(this.clip != null)
+        if(clip != null)
         {
-            this.clip.stop();
-            this.clip.close();
+            clip.stop();
+            clip.close();
         }
         try
         {
-            this.clip = AudioSystem.getClip();
+            clip = AudioSystem.getClip();
         }
         catch(LineUnavailableException e)
         {
             e.printStackTrace();
         }
         url = string + ".wav";
-        this.playSong = true;
-        this.inputStream = null;
+        playSong = true;
+        inputStream = null;
     }
 
     public void disposeSound()
@@ -85,7 +85,7 @@ public class StdAudio implements Runnable
         this.clip = null;
         this.playSong = false;
         this.inputStream = null;
-        this.thread.stop();
+       // this.thread.stop();
         
     }
     

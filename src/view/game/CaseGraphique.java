@@ -54,17 +54,12 @@ public class CaseGraphique extends JPanel {
 			
 			g.setColor(Color.WHITE);
 			
-			g.drawString(pos.getJoueur().getNom(),8, 10);
+			g.drawString(pos.getJoueur().getNom()+" "+pos.getJoueur().getLvl(),8, 10);
 		}
 		
 		for(CaseElement ce : pos.getElements())
-			if(pos.getType()==1){
-				if(ce.getType().equals("bomb"))
-					g.drawImage(sl.getBomb(((Bomb)ce).getProprio().getBomb(), ((Bomb)ce).getProprio().getBombEvol()).getImage(), 0, 0, getWidth(), getHeight(), this);
-				else
-					g.drawImage(il.getElement(ce.getType(), Direction.FIXE), 0, 0, getWidth(), getHeight(), this);
-			}else if(!ce.getType().equals("fire") && !ce.getType().equals("potion"))
-				g.drawImage(il.getElement(ce.getType(), Direction.FIXE), 0, 0, getWidth(), getHeight(), this);
+			g.drawImage(ce.getImage(), 0, 0, getWidth(), getHeight(), this);
+				
 	}
 	
 	public double getPercentLife(Player p){

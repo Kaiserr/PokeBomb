@@ -10,6 +10,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import util.SpriteLoader;
+import util.StdAudio;
 import model.Game;
 import controller.HomeListener;
 
@@ -18,6 +20,8 @@ public class HomePane extends JPanel {
 	private JButton solo, multi, online;
 	private JFrame frame;
 	private Game g = new Game();
+	public static SpriteLoader images = new SpriteLoader();
+	public static StdAudio audio = new StdAudio();
 
 	public HomePane(JFrame frame) {
 		super(new GridBagLayout());
@@ -47,7 +51,7 @@ public class HomePane extends JPanel {
 	}
 
 	public void paintComponent(Graphics g) {
-		g.drawImage(new ImageIcon("resources/images/home.png").getImage(), 0,
+		g.drawImage(new ImageIcon("resources/images/menus/home.png").getImage(), 0,
 				0, getWidth(), getHeight(), this);
 	}
 

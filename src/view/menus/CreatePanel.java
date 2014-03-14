@@ -21,7 +21,7 @@ import controller.CharacterChoiceListener;
 public class CreatePanel extends JPanel {
 
 	private ArrayList<JButton> trainerChoice = new ArrayList<JButton>();
-	private JButton next = new JButton("Commencer");
+	private JButton next = new JButton("Suivant");
 	private JButton prev = new JButton("Retour au menu");
 	private JTextField nameField = new JTextField();
 	private HomePane hp;
@@ -43,7 +43,6 @@ public class CreatePanel extends JPanel {
 
 		c.insets = new Insets(10, 10, 10, 10);
 
-		SpriteLoader images = new SpriteLoader();
 		JPanel trainers = new JPanel(new GridLayout(3, 4));
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.ipadx = 0;
@@ -56,7 +55,7 @@ public class CreatePanel extends JPanel {
 		c.gridy = 2;
 		add(trainers, c);
 		for (int i = 0; i < 12; i++) {
-			JButton choice = new JButton(images.getTrainerIcon(i));
+			JButton choice = new JButton(HomePane.images.getTrainerIcon(i));
 			trainerChoice.add(choice);
 			trainers.add(choice);
 			choice.addActionListener(ccl);

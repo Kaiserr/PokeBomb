@@ -1,21 +1,25 @@
 package model.elements;
 
+import java.awt.Image;
+
 import model.Grille;
 import model.cases.Case;
+import util.Direction;
+import util.ImageLoader;
 import view.game.GrilleGraphique;
+import view.menus.HomePane;
 
 public class Potion extends AbstractElement{
 
 	private final int LESSER=1,MEDIUM=2,MAX=3;
 	private int power;
 	private Grille plateau;
-	private Case position;
 	
 	public Potion(Grille plateau,Case pos,int power){
 		this.power=power;
 		type="potion";
 		this.plateau=plateau;
-		this.position=pos;
+		position=pos;
 	}
 	
 	public void heal(Player p){
@@ -37,5 +41,15 @@ public class Potion extends AbstractElement{
 			break;
 		}
 		return pv;
+	}
+	
+	public Image getImage() {
+		if(position.getType()==1){
+			/*ImageLoader il = new ImageLoader();
+			Image toReturn = il.getElement(type, Direction.FIXE);
+			return toReturn;*/
+			return HomePane.images.getElement(4).getImage();
+		}
+		return null;
 	}
 }

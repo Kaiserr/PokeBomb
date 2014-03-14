@@ -1,23 +1,20 @@
 package model.elements;
 
-import java.applet.Applet;
-import java.applet.AudioClip;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.awt.Image;
 import java.util.ArrayList;
 
 import model.Grille;
 import model.cases.AbstractCase;
 import model.cases.Case;
 import util.Direction;
-import util.StdAudio;
+import util.SpriteLoader;
 import view.game.GrilleGraphique;
+import view.menus.HomePane;
 
 public class Bomb extends AbstractElement implements Runnable {
 
 	private Grille plateau;
 	private GrilleGraphique gg;
-	private Case position;
 	private Thread bombThread;
 	private int delay, power;
 	private Player proprio;
@@ -25,7 +22,7 @@ public class Bomb extends AbstractElement implements Runnable {
 	public Bomb(Grille plateau, Case pos, GrilleGraphique gg, int delay,
 			Player proprio, int power) {
 		this.plateau = plateau;
-		this.position = pos;
+		position = pos;
 		this.gg = gg;
 		this.delay = delay;
 		this.power = power;
@@ -37,27 +34,23 @@ public class Bomb extends AbstractElement implements Runnable {
 		setDirection(Direction.FIXE);
 	}
 
-	public void explode() throws MalformedURLException {
+	public void explode() {
 
 		int nbCasse = 0;
 		ArrayList<Case> aoe = getAOE(proprio.getRadiusPower());
 		ArrayList<Player> lostHealth = new ArrayList<Player>();
 
-		StdAudio audio = new StdAudio();
-		audio.playBackGround("resources/sounds/explode");
 		
-		
-		
+		HomePane.audio.playBackGround("resources/sounds/game/explode");
+
 		for (Case c : aoe) {
-			// c.ajouterElement(new Fire(this, c, AbstractElement.HAUT));
-			c.ajouterElement(new Fire(this, c, Direction.HAUT));
+			c.ajouterElement(new Fire(this, c, Direction.FIXE));
 			for (CaseElement ce : c.getElements()) {
 				if (ce.getType().equals("player")) {
 					lostHealth.add((Player) ce);
 				}
 			}
 			gg.repaint();
-			
 
 			if (c.estCassable()) {
 				c.casse();
@@ -76,20 +69,28 @@ public class Bomb extends AbstractElement implements Runnable {
 
 		position.setTraversable(true);
 		position.removeElement(this);
-		proprio.addXp(nbCasse);
+		int dead=0;
+		int fantom=0;
+		int touched=0;
 		for (Player p : lostHealth) {
 			p.setPv(p.getPv() - power);
 			gg.repaint();
-			if (p.getPv() <= 0 && !p.isFantom())
+			if (p.getPv() <= 0 && !p.isFantom()){
 				p.setFantom(true);
-			else if (p.getPv() <= 0 && p.isFantom())
+				fantom++;
+			}else if (p.getPv() <= 0 && p.isFantom()){
 				p.setDead(true);
-
+				dead++;
+			}
+			if(p!=proprio)
+				touched++;
 		}
+		proprio.addXp(nbCasse+(touched*2)+(fantom*3)+(dead*5));
+		
 		gg.repaint();
 		try {
 			bombThread.sleep(1000);
-			audio.disposeSound();
+			HomePane.audio.disposeSound();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -101,10 +102,7 @@ public class Bomb extends AbstractElement implements Runnable {
 		try {
 			bombThread.sleep(delay);
 			explode();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (MalformedURLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -218,5 +216,11 @@ public class Bomb extends AbstractElement implements Runnable {
 
 	public void setProprio(Player proprio) {
 		this.proprio = proprio;
+	}
+
+	public Image getImage() {
+		Image toReturn = SpriteLoader.getBomb(proprio.getBomb(),
+				proprio.getBombEvol()).getImage();
+		return toReturn;
 	}
 }

@@ -121,7 +121,6 @@ public class KeyboardListener implements KeyListener{
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
-		System.out.println("pressed !");
 		if(!g.getJoueur(0).isDead()){
 			switch (e.getKeyCode()){
 				

@@ -1,18 +1,21 @@
 package model.elements;
 
+import java.awt.Image;
+
 import util.Direction;
+import util.ImageLoader;
+import view.menus.HomePane;
 import model.cases.Case;
 
 public class Fire extends AbstractElement{
 
 	private Bomb source;
-	private Case position;
 	//private int direction;
 	private String type;
 	
 	public Fire(Bomb b,Case position,Direction direction){
 		source=b;
-		this.position=position;
+		position=position;
 		//this.direction=direction;
 		
 		this.setDirection(direction);
@@ -52,5 +55,13 @@ public class Fire extends AbstractElement{
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+
+	public Image getImage() {
+		/*ImageLoader il = new ImageLoader();
+		Image toReturn = il.getElement(type, Direction.FIXE);
+		return toReturn;*/
+		return HomePane.images.getElement(0).getImage();
 	}
 }

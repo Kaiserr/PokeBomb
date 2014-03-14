@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import model.elements.Player;
 import util.StdAudio;
 import view.game.GrilleGraphique;
+import view.menus.AttributeSelection;
 import view.menus.CreatePanel;
 import view.menus.SkillSelection;
 
@@ -48,14 +49,9 @@ public class CharacterChoiceListener implements ActionListener{
 			cp.getHp().getFrame().repaint();
 			cp.getHp().getFrame().validate();
 		}else if(source == ss.getNext()){
-			cp.getHp().getG().addPlayer(ss.getP());
-			GrilleGraphique gg =new GrilleGraphique(cp.getHp().getG().getPlateau()); 
-			cp.getHp().getFrame().setContentPane(gg);
-			
-			cp.getHp().getG().start();
-			gg.addKeyListener(new KeyboardListener(gg));
-			gg.requestFocus();
-			gg.repaint();
+			AttributeSelection attrS = new AttributeSelection(cp.getHp(), ss, ss.getP());
+			cp.getHp().getFrame().setContentPane(attrS);
+			cp.getHp().getFrame().repaint();
 			cp.getHp().getFrame().validate();
 		}else if(ss.getBombChoice().contains(source)){
 			bomb = ss.getBombChoice().indexOf(source);

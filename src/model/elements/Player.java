@@ -1,14 +1,19 @@
 package model.elements;
 
+import java.awt.Image;
+
+import util.Attribute;
 import util.Direction;
+import util.SpriteLoader;
+import view.menus.HomePane;
 import model.cases.Case;
 
 public class Player extends AbstractElement{
 	private int skin=3 ,pv,maxPv,lvl, nbBombs, radiusPower,power,xp,maxXp,bomb=0,bombEvol=0;
-	//private int direction,pv,maxPv,lvl, nbBombs, radiusPower,power,xp,maxXp;
 	private String nom;
 	private Case position;
 	private boolean fantom=false,dead=false;
+	private Attribute bonus=Attribute.NONE;
 	
 	public Player(String nom,int skin,Case position){
 		type="player";
@@ -22,7 +27,7 @@ public class Player extends AbstractElement{
 		radiusPower=1;
 		xp=0;
 		maxXp=3;
-		this.position=position;
+		position=position;
 		this.skin=skin;
 		setDirection(Direction.BAS);
 	}
@@ -54,12 +59,33 @@ public class Player extends AbstractElement{
 	public void levelUp(){
 		lvl++;
 		xp=0;
-		maxXp+=3;
-		pv+=50;
-		maxPv+=50;
-		radiusPower++;
-		nbBombs++;
-		power+=30;
+		maxXp+=3*lvl;
+		pv+=20;
+		maxPv+=20;
+		
+		if(lvl%2==0){
+			nbBombs++;
+			radiusPower++;
+		}
+		
+		if(lvl==3)
+			bombEvol=1;
+		
+		switch(bomb){
+		case 0: //RACAILLOU
+			power+=12;
+			break;
+		case 1: //SMOGO
+			power+=12;
+			break;
+		case 2: //VOLTORBE
+			power +=20;
+			break;
+		case 3: //STALGAMIN
+			power+=15;
+			break;
+		}
+		
 	}
 	
 	public void heal(int pvToHeal){
@@ -67,15 +93,7 @@ public class Player extends AbstractElement{
 		if(pv>maxPv)
 			pv=maxPv;
 	}
-/*
-	public int getDirection() {
-		return direction;
-	}
 
-	public void setDirection(int direction) {
-		this.direction = direction;
-	}
-*/
 	public int getPv() {
 		return pv;
 	}
@@ -198,5 +216,19 @@ public class Player extends AbstractElement{
 
 	public void setBombEvol(int bombEvol) {
 		this.bombEvol = bombEvol;
+	}
+
+	@Override
+	public Image getImage() {
+		Image toReturn = SpriteLoader.getTrainer(this).getImage();
+		return toReturn;
+	}
+
+	public Attribute getBonus() {
+		return bonus;
+	}
+
+	public void setBonus(Attribute bonus) {
+		this.bonus = bonus;
 	}
 }

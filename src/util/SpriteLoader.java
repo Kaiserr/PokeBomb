@@ -13,18 +13,20 @@ import model.elements.Player;
 
 public class SpriteLoader {
 
-	private ArrayList<BufferedImage> trainersIcon = new ArrayList<BufferedImage>();
-	private ArrayList<BufferedImage[]> trainersSprite = new ArrayList<BufferedImage[]>();
-	private ArrayList<BufferedImage[]> allbombs = new ArrayList<BufferedImage[]>();
-	private BufferedImage[] spectrum = new BufferedImage[4];
+	public static ArrayList<BufferedImage> trainersIcon = new ArrayList<BufferedImage>();
+	public static ArrayList<BufferedImage[]> trainersSprite = new ArrayList<BufferedImage[]>();
+	public static ArrayList<BufferedImage[]> allbombs = new ArrayList<BufferedImage[]>();
+	public static BufferedImage[] spectrum = new BufferedImage[4];
+	public static BufferedImage[] elementsImages = new BufferedImage[6];
 	
-	private File trainersIconFile = new File("resources/images/trainersIcon.png");
-	private File trainersSpriteFile = new File("resources/images/trainersSpriteSheet.png");
-	private File spectrumSpriteFile = new  File("resources/images/SpectrumSpriteSheet.png");
-	private File graveStoneSprite = new  File("resources/images/tombStone.png");
-	private File bombs = new  File("resources/images/bombSprite.png");
+	public static File trainersIconFile = new File("resources/images/players/trainersIcon.png");
+	public static File trainersSpriteFile = new File("resources/images/players/trainersSpriteSheet.png");
+	public static File spectrumSpriteFile = new  File("resources/images/players/SpectrumSpriteSheet.png");
+	public static File graveStoneSprite = new  File("resources/images/players/tombStone.png");
+	public static File bombs = new  File("resources/images/bombs/bombSprite2.png");
+	public static File elements = new File("resources/images/elements/elementsSprites.png");
 	
-	private BufferedImage trainersIconImage,trainersSpriteImage,spectrumSprites,graveStone,bombSprite;
+	public static BufferedImage trainersIconImage,trainersSpriteImage,spectrumSprites,graveStone,bombSprite,elementsSprite;
 	
 	
 	public SpriteLoader(){
@@ -34,17 +36,34 @@ public class SpriteLoader {
 			spectrumSprites = ImageIO.read(spectrumSpriteFile);
 			graveStone=ImageIO.read(graveStoneSprite);
 			bombSprite=ImageIO.read(bombs);
+			elementsSprite=ImageIO.read(elements);
 			initTrainersIcons();
 			initTrainersSprite();
 			initBombsSprite();
+			initElementsSprite();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
+	private void initElementsSprite(){
+		int cpt=0;
+		for(int col=0;col<2;col++){
+			for(int line=0;line<3;line++){
+				System.out.println(cpt);
+				elementsImages[cpt]=elementsSprite.getSubimage((col*70), (line*70), 70, 70);
+				cpt++;
+			}
+		}
+	}
+	
+	public static ImageIcon getElement(int num){
+		return new ImageIcon(elementsImages[num]);
+	}
+	
 	private void initBombsSprite() {
-		for(int col=0;col<3;col++){
+		for(int col=0;col<4;col++){
 			for(int line=0;line<2;line++){
 				if(line==0){
 					allbombs.add(new BufferedImage[2]);
@@ -57,7 +76,7 @@ public class SpriteLoader {
 		
 	}
 	
-	public ImageIcon getBomb(int num,int evol){
+	public static ImageIcon getBomb(int num,int evol){
 		BufferedImage toRender = allbombs.get(num)[evol];
 		Graphics2D graphics2D = toRender.createGraphics();
 		graphics2D.drawImage(toRender, 0, 0, toRender.getWidth(), toRender.getHeight(), null);
@@ -91,7 +110,7 @@ public class SpriteLoader {
 		
 	}
 	
-	public ImageIcon getTrainer(Player p){
+	public static ImageIcon getTrainer(Player p){
 		BufferedImage toRender;
 		Direction dir = p.getDirection();
 		int num = p.getSkin();
@@ -143,7 +162,7 @@ public class SpriteLoader {
 		return toReturn;
 	}
 	
-	public ImageIcon getTrainerIcon(int col){
+	public static ImageIcon getTrainerIcon(int col){
 		BufferedImage toRender = trainersIcon.get(col);
 		Graphics2D graphics2D = toRender.createGraphics();
 		graphics2D.drawImage(toRender, 0, 0, toRender.getWidth(), toRender.getHeight(), null);
