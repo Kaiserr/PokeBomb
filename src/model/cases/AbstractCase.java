@@ -14,10 +14,18 @@ public abstract class AbstractCase implements Case{
 	protected int x;
 	protected int y;
 	protected int type;
-	protected boolean traversable,hasABomb=false,cassable=false;
+	protected boolean traversable,hasABomb=false,cassable=false,spawn=false;
 	
 	public Image getImage(){
 		return HomePane.images.getCase(type).getImage();
+	}
+	
+	public void setSpawn(boolean b){
+		this.spawn=b;
+	}
+	
+	public boolean getSpawn(){
+		return spawn;
 	}
 	
 	public ArrayList<CaseElement> getElements(){
@@ -107,6 +115,10 @@ public abstract class AbstractCase implements Case{
 
 	public void setY(int y) {
 		this.y = y;
+	}
+	
+	public void setType(int type){
+		this.type=type;
 	}
 	
 }

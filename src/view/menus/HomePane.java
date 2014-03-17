@@ -18,28 +18,32 @@ import controller.HomeListener;
 
 public class HomePane extends JPanel {
 
-	private JButton solo, multi, online;
+	private JButton solo, multi, online, editor;
 	private JFrame frame;
 	private Game g = new Game();
 	public static SpriteLoader images = new SpriteLoader();
 	public static StdAudio audio = new StdAudio();
-	public static Font font22=new Font("Serif", Font.BOLD, 22);
-	public static Font font14=new Font("Serif", Font.BOLD, 12);
+	public static Font font22 = new Font("Serif", Font.BOLD, 22);
+	public static Font font14 = new Font("Serif", Font.BOLD, 12);
 
 	public HomePane(JFrame frame) {
 		super(new GridBagLayout());
 		this.frame = frame;
 		GridBagConstraints c = new GridBagConstraints();
+		HomeListener hl = new HomeListener(frame, this);
 		solo = new JButton("Partie solo");
 		solo.setFont(font14);
 		multi = new JButton("Partie multi");
 		multi.setFont(font14);
 		online = new JButton("Partie en ligne");
 		online.setFont(font14);
-		solo.addActionListener(new HomeListener(frame, this));
-		multi.addActionListener(new HomeListener(frame, this));
-		online.addActionListener(new HomeListener(frame, this));
-		
+		editor=new JButton("Editeur de cartes");
+		editor.setFont(font14);
+		solo.addActionListener(hl);
+		multi.addActionListener(hl);
+		online.addActionListener(hl);
+		editor.addActionListener(hl);
+
 		c.fill = GridBagConstraints.BOTH;
 		c.insets = new Insets(290, 5, 5, 5);
 
@@ -53,11 +57,15 @@ public class HomePane extends JPanel {
 		c.gridx = 0;
 		c.gridy = 5;
 		add(online, c);
+		c.gridx = 0;
+		c.gridy = 6;
+		add(editor, c);
 
 	}
 
 	public void paintComponent(Graphics g) {
-		g.drawImage(new ImageIcon("resources/images/menus/home.png").getImage(), 0,
+		g.drawImage(
+				new ImageIcon("resources/images/menus/home.png").getImage(), 0,
 				0, getWidth(), getHeight(), this);
 	}
 

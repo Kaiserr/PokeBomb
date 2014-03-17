@@ -1,0 +1,8 @@
+########
+#D CC D#
+# C#CC #
+#C#CCCC#
+#CCCC#C#
+# CC#C #
+#D CC D#
+########

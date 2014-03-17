@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import model.cases.Case;
+import model.cases.Ice;
 import model.cases.Mur;
 import model.cases.MurCassable;
 import model.cases.Vide;
@@ -59,7 +60,10 @@ public class Grille {
 				else if (caseChar == 'D') {
 					plateau[i][j] = new Vide(i, j);
 					casesDepart.add(plateau[i][j]);
-				}
+					plateau[i][j].setSpawn(true);
+				}else if( caseChar == 'I')
+					plateau[i][j]=new Ice(i, j);
+				
 			}
 		}
 

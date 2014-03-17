@@ -20,6 +20,6 @@ public class PanelImage extends JPanel{
 	}
 	
 	public void paintComponent(Graphics g){
-		g.drawImage(img, 0, 0, 70, 70,this);
+		g.drawImage(img, 0, 0, getWidth(), getHeight(),this);
 	}
 }

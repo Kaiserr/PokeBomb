@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import mapEditor.EditorFrame;
 import view.menus.CreatePanel;
 import view.menus.HomePane;
 
@@ -31,6 +32,10 @@ public class HomeListener implements ActionListener{
 			//TODO
 		}else if(source==pane.getOnline()){
 			//TODO
+		}else{
+			new EditorFrame();
+			frame.setVisible(false);
+			frame.dispose();
 		}
 	}
 }

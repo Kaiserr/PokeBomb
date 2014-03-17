@@ -17,29 +17,22 @@ import view.menus.HomePane;
 public class CaseGraphique extends JPanel {
 
 	private Case pos;
-	private ImageLoader il;
 	private GrilleGraphique cg;
-	private SpriteLoader sl = new SpriteLoader();
-	private int repaint=0;
 
 	public CaseGraphique(Case pos,GrilleGraphique cg) {
 		super();
-		il=new ImageLoader();
 		this.cg=cg;
 		this.pos = pos;
 	}
 	
 	public void paintComponent(Graphics g){
-		//repaint++;
-		//System.out.println(repaint);
-	
-		//g.drawImage(il.getTerrain(pos.getType()), 0, 0, getWidth(), getHeight(), this);
+		
 		g.drawImage(HomePane.images.getCase(pos.getType()).getImage(), 0, 0, getWidth(), getHeight(), this);
 		
 		if(pos.containPlayer()){
 			
 			
-			g.drawImage(sl.getTrainer(pos.getJoueur()).getImage(), 5, 5, getWidth()-10, getHeight()-5, this);
+			g.drawImage(HomePane.images.getTrainer(pos.getJoueur()).getImage(), 5, 5, getWidth()-10, getHeight()-5, this);
 			
 			//BARRE DE VIE
 			g.setColor(Color.BLACK);

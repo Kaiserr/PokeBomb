@@ -10,7 +10,13 @@ public interface Case {
 	
 	public Image getImage();
 	
+	public void setSpawn(boolean b);
+	
+	public boolean getSpawn();
+	
 	public int getType();
+	
+	public void setType(int type);
 
 	public boolean estTraversable();
 

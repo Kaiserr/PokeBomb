@@ -179,6 +179,15 @@ public class SpriteLoader {
 		return toReturn;
 	}
 	
+	public static ImageIcon getGraveStone(){
+		BufferedImage toRender=graveStone;
+		Graphics2D graphics2D = toRender.createGraphics();
+		graphics2D.drawImage(toRender, 0, 0, toRender.getWidth(), toRender.getHeight(), null);
+		graphics2D.dispose();
+		ImageIcon toReturn = new ImageIcon(toRender);
+		return toReturn;
+	}
+	
 	public static ImageIcon getTrainerIcon(int col){
 		BufferedImage toRender = trainersIcon.get(col);
 		Graphics2D graphics2D = toRender.createGraphics();
