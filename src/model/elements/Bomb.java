@@ -2,10 +2,12 @@ package model.elements;
 
 import java.awt.Image;
 import java.util.ArrayList;
+import java.util.Random;
 
 import model.Grille;
 import model.cases.AbstractCase;
 import model.cases.Case;
+import model.cases.Ice;
 import util.Direction;
 import util.SpriteLoader;
 import view.game.GrilleGraphique;
@@ -28,7 +30,7 @@ public class Bomb extends AbstractElement implements Runnable {
 		this.power = power;
 		bombThread = new Thread(this);
 		bombThread.start();
-		type = "bomb";
+		type =4;
 		this.proprio = proprio;
 
 		setDirection(Direction.FIXE);
@@ -45,14 +47,23 @@ public class Bomb extends AbstractElement implements Runnable {
 		for (Case c : aoe) {
 			c.ajouterElement(new Fire(this, c, Direction.FIXE));
 			for (CaseElement ce : c.getElements()) {
-				if (ce.getType().equals("player")) {
+				if (ce.getType()==6) {
 					lostHealth.add((Player) ce);
 				}
 			}
 			gg.repaint();
 
 			if (c.estCassable()) {
-				c.casse();
+				if(proprio.getBomb()==3 && proprio.getBombEvol()==1){
+					Random r = new Random();
+					if(r.nextBoolean() && r.nextBoolean())
+						c.gele();
+					else
+						c.casse();
+				}
+					
+				else
+					c.casse();
 				nbCasse++;
 			}
 		}
@@ -63,32 +74,30 @@ public class Bomb extends AbstractElement implements Runnable {
 			e.printStackTrace();
 		}
 
-		for (Case c : aoe)
-			((AbstractCase) c).removeElementByType("fire");
+		for (Case c : aoe){
+			((AbstractCase) c).removeElementByType(0);
+			
+		}
 
-		position.setTraversable(true);
 		position.removeElement(this);
 		int dead = 0;
 		int fantom = 0;
 		int touched = 0;
 		for (Player p : lostHealth) {
-			p.setPv(p.getPv() - power);
-			gg.repaint();
-			if (p.getPv() <= 0 && !p.isFantom()) {
-				p.setFantom(true);
-				if (p != proprio)
-					fantom++;
-			} else if (p.getPv() <= 0 && p.isFantom()) {
-				p.setDead(true);
-				if (p != proprio)
-					dead++;
-			}
-			if (p != proprio)
+			p.removeHP(power);
+			if (p != proprio){
 				touched++;
+				if(p.isFantom())
+						fantom++;
+			    else if (p.isDead()) 
+						dead++;
+			
+			}
+			
 		}
 		proprio.addXp(nbCasse + (touched * 2) + (fantom * 3) + (dead * 5));
-
 		gg.repaint();
+		
 		try {
 			bombThread.sleep(1000);
 			HomePane.audio.disposeSound();

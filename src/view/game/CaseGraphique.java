@@ -12,6 +12,7 @@ import model.elements.Player;
 import util.Direction;
 import util.ImageLoader;
 import util.SpriteLoader;
+import view.menus.HomePane;
 
 public class CaseGraphique extends JPanel {
 
@@ -19,6 +20,7 @@ public class CaseGraphique extends JPanel {
 	private ImageLoader il;
 	private GrilleGraphique cg;
 	private SpriteLoader sl = new SpriteLoader();
+	private int repaint=0;
 
 	public CaseGraphique(Case pos,GrilleGraphique cg) {
 		super();
@@ -28,8 +30,11 @@ public class CaseGraphique extends JPanel {
 	}
 	
 	public void paintComponent(Graphics g){
+		//repaint++;
+		//System.out.println(repaint);
 	
-		g.drawImage(il.getTerrain(pos.getType()), 0, 0, getWidth(), getHeight(), this);
+		//g.drawImage(il.getTerrain(pos.getType()), 0, 0, getWidth(), getHeight(), this);
+		g.drawImage(HomePane.images.getCase(pos.getType()).getImage(), 0, 0, getWidth(), getHeight(), this);
 		
 		if(pos.containPlayer()){
 			
@@ -72,5 +77,9 @@ public class CaseGraphique extends JPanel {
 	
 	public String toString(){
 		return pos.containPlayer()?"X ":"_ ";
+	}
+	
+	public void setPosition(Case c){
+		this.pos=c;
 	}
 }

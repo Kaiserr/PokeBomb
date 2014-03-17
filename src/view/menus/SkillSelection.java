@@ -44,6 +44,7 @@ public class SkillSelection extends JPanel{
 		descrip.setColumns(25);
 		descrip.setLineWrap(true);
 		descrip.setWrapStyleWord(true);
+		descrip.setFont(HomePane.font14);
 		
 		c.fill = GridBagConstraints.VERTICAL;
 		
@@ -60,12 +61,13 @@ public class SkillSelection extends JPanel{
 
 		c.insets = new Insets(10, 10, 10, 10);
 		c.weightx = 0;
-		c.gridx = 1;
-		c.gridy = 1;
 		c.gridheight=1;
-		c.gridwidth=1;
-		add(new JLabel("Choisissez votre bombe", JLabel.CENTER), c);
-		
+		c.gridx = 0;
+		c.gridy = 1;
+		c.gridwidth=3;
+		JLabel choose = new JLabel("Choisissez votre bombe", JLabel.CENTER);
+		choose.setFont(HomePane.font22);
+		add(choose, c);
 
 		
 		JPanel bombs = new JPanel(new GridLayout(1, 4));
@@ -94,7 +96,7 @@ public class SkillSelection extends JPanel{
 		add(descrip,c);
 
 		c.anchor=GridBagConstraints.LAST_LINE_START;
-		c.ipady = 0;
+		c.ipady = 20;
 		c.weighty = 1.0;
 		c.gridx = 0;
 		c.gridwidth = 1;
@@ -105,7 +107,7 @@ public class SkillSelection extends JPanel{
 		
 
 		c.anchor=GridBagConstraints.LAST_LINE_END;
-		c.ipady = 0;
+		c.ipady = 20;
 		c.weighty = 1.0;
 		c.gridx = 2;
 		c.gridwidth = 1;
@@ -114,6 +116,9 @@ public class SkillSelection extends JPanel{
 		next.addActionListener(ccl);
 
 		setSelected(0);
+		
+		next.setFont(HomePane.font14);
+		prev.setFont(HomePane.font14);
 	}
 	
 	public void setSelected(int selected) {
@@ -122,6 +127,8 @@ public class SkillSelection extends JPanel{
 		bombChoice.get(selected).setBackground(new Color(0,155,61));
 		descrip.setText(BombType.getDescription(BombType.getBombType(selected)));
 	}
+	
+	
 
 	public Player getP() {
 		return p;

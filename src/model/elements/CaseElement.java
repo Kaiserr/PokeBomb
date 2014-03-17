@@ -6,7 +6,7 @@ import util.Direction;
 
 public interface CaseElement {
 	
-	String getType();
+	int getType();
 	Direction getDirection();
 	Image getImage();
 }

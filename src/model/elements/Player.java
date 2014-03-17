@@ -14,9 +14,10 @@ public class Player extends AbstractElement{
 	private Case position;
 	private boolean fantom=false,dead=false;
 	private Attribute bonus=Attribute.NONE;
+	private boolean[] effects={false,false,false};
 	
 	public Player(String nom,int skin,Case position){
-		type="player";
+		type=6;
 		lvl=1;
 		pv=100;
 		maxPv=100;
@@ -124,6 +125,15 @@ public class Player extends AbstractElement{
 
 	public void setMaxPv(int maxPv) {
 		this.maxPv = maxPv;
+	}
+	
+	public void removeHP(int hp){
+		pv=pv-hp;
+		if (getPv() <= 0 && !isFantom()) {
+			setFantom(true);
+		} else if (getPv() <= 0 && isFantom()) {
+			setDead(true);
+		}
 	}
 
 	public int getNbBombs() {

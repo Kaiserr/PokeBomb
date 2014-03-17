@@ -1,11 +1,14 @@
 package model.cases;
 
+import java.awt.Image;
 import java.util.ArrayList;
 
 import model.elements.CaseElement;
 import model.elements.Player;
 
 public interface Case {
+	
+	public Image getImage();
 	
 	public int getType();
 
@@ -14,6 +17,8 @@ public interface Case {
 	public boolean estCassable();
 	
 	public void casse();
+	
+	public void gele();
 	
 	public boolean hasABomb();
 	

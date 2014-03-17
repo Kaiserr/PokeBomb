@@ -12,9 +12,9 @@ public abstract class AbstractElement implements CaseElement{
 	//protected int direction;
 	protected Case position;
 	private Direction dir;
-	protected String type;
+	protected int type;
 	
-	public String getType(){
+	public int getType(){
 		return type;
 	}
 	

@@ -18,6 +18,7 @@ public class SpriteLoader {
 	public static ArrayList<BufferedImage[]> allbombs = new ArrayList<BufferedImage[]>();
 	public static BufferedImage[] spectrum = new BufferedImage[4];
 	public static BufferedImage[] elementsImages = new BufferedImage[6];
+	public static BufferedImage[] cases = new BufferedImage[4];
 	
 	public static File trainersIconFile = new File("resources/images/players/trainersIcon.png");
 	public static File trainersSpriteFile = new File("resources/images/players/trainersSpriteSheet.png");
@@ -25,8 +26,10 @@ public class SpriteLoader {
 	public static File graveStoneSprite = new  File("resources/images/players/tombStone.png");
 	public static File bombs = new  File("resources/images/bombs/bombSprite2.png");
 	public static File elements = new File("resources/images/elements/elementsSprites.png");
+	public static File casesFile = new File("resources/images/cases/SpriteCases.png");
 	
-	public static BufferedImage trainersIconImage,trainersSpriteImage,spectrumSprites,graveStone,bombSprite,elementsSprite;
+	
+	public static BufferedImage trainersIconImage,trainersSpriteImage,spectrumSprites,graveStone,bombSprite,elementsSprite,SpriteCases;
 	
 	
 	public SpriteLoader(){
@@ -37,21 +40,35 @@ public class SpriteLoader {
 			graveStone=ImageIO.read(graveStoneSprite);
 			bombSprite=ImageIO.read(bombs);
 			elementsSprite=ImageIO.read(elements);
+			SpriteCases=ImageIO.read(casesFile);
 			initTrainersIcons();
 			initTrainersSprite();
 			initBombsSprite();
 			initElementsSprite();
+			initCases();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
+	private void initCases(){
+		int tmp=0;
+		for(int col=0;col<2;col++)
+			for(int line=0;line<2;line++){
+				cases[tmp]=SpriteCases.getSubimage(col*45,(line*45), 45, 45);
+				tmp++;
+			}
+	}
+	
+	public static ImageIcon getCase(int num){
+		return new ImageIcon(cases[num-1]);
+	}
+	
 	private void initElementsSprite(){
 		int cpt=0;
 		for(int col=0;col<2;col++){
 			for(int line=0;line<3;line++){
-				System.out.println(cpt);
 				elementsImages[cpt]=elementsSprite.getSubimage((col*70), (line*70), 70, 70);
 				cpt++;
 			}

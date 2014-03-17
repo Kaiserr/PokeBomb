@@ -11,7 +11,8 @@ public class Fire extends AbstractElement{
 
 	private Bomb source;
 	//private int direction;
-	private String type;
+	private int type;
+	private int subType;
 	
 	public Fire(Bomb b,Case position,Direction direction){
 		source=b;
@@ -19,7 +20,8 @@ public class Fire extends AbstractElement{
 		//this.direction=direction;
 		
 		this.setDirection(direction);
-		this.type="fire";
+		type=0;
+		subType=b.getProprio().getBomb();
 	}
 
 	public Bomb getSource() {
@@ -49,11 +51,11 @@ public class Fire extends AbstractElement{
 	}
 */
 	
-	public String getType() {
+	public int getType() {
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(int type) {
 		this.type = type;
 	}
 
@@ -62,6 +64,6 @@ public class Fire extends AbstractElement{
 		/*ImageLoader il = new ImageLoader();
 		Image toReturn = il.getElement(type, Direction.FIXE);
 		return toReturn;*/
-		return HomePane.images.getElement(0).getImage();
+		return HomePane.images.getElement(subType).getImage();
 	}
 }

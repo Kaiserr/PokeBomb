@@ -17,7 +17,7 @@ public class Potion extends AbstractElement{
 	
 	public Potion(Grille plateau,Case pos,int power){
 		this.power=power;
-		type="potion";
+		type=5;
 		this.plateau=plateau;
 		position=pos;
 	}
@@ -48,7 +48,7 @@ public class Potion extends AbstractElement{
 			/*ImageLoader il = new ImageLoader();
 			Image toReturn = il.getElement(type, Direction.FIXE);
 			return toReturn;*/
-			return HomePane.images.getElement(4).getImage();
+			return HomePane.images.getElement(5).getImage();
 		}
 		return null;
 	}

@@ -1,15 +1,11 @@
 package view.game;
 
 import java.awt.GridLayout;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 import javax.swing.JPanel;
 
-import controller.KeyboardListener;
 import model.Grille;
 import model.cases.Case;
-import model.cases.Vide;
 
 public class GrilleGraphique extends JPanel{
 
@@ -74,5 +70,9 @@ public class GrilleGraphique extends JPanel{
 	public void setCases(HashMap<Integer,ArrayList<CaseGraphique>> cases) {
 		this.cases = cases;
 	}*/
+	
+	public void setCaseAt(int x,int y, Case c){
+		cases[x][y].setPosition(c);
+	}
 	
 }

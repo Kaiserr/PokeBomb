@@ -13,11 +13,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-import com.sun.crypto.provider.DESParameters;
-
 import model.elements.Player;
 import util.Attribute;
-import controller.AttributeListener;
+import controller.CharacterChoiceListener;
 
 public class AttributeSelection extends JPanel{
 	
@@ -35,7 +33,9 @@ public class AttributeSelection extends JPanel{
 		this.ss=ss;
 		setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
-		AttributeListener al=new AttributeListener(this); 
+		//AttributeListener al=new AttributeListener(this); 
+		CharacterChoiceListener ccl = ss.getCp().getCcl();
+		ccl.setAs(this);
 		descrip.setMaximumSize(new Dimension(getWidth()/3,100));
 		descrip.setPreferredSize(new Dimension(getWidth()/3,100));
 		descrip.setEditable(false);
@@ -43,6 +43,7 @@ public class AttributeSelection extends JPanel{
 		descrip.setColumns(25);
 		descrip.setLineWrap(true);
 		descrip.setWrapStyleWord(true);
+		descrip.setFont(HomePane.font14);
 		
 		c.fill = GridBagConstraints.VERTICAL;
 		c.insets = new Insets(20, 10, 10, 10);
@@ -54,9 +55,12 @@ public class AttributeSelection extends JPanel{
 		add(ss.getRecap(), c);
 		ss.getRecap().add( new PanelImage(HomePane.images.getBomb(ss.getSelected(), 0)));
 		c.weightx = 0;
-		c.gridx = 1;
+		c.gridx = 0;
 		c.gridy = 1;
-		add(new JLabel("Choisissez votre attribut", JLabel.CENTER), c);
+		c.gridwidth=3;
+		JLabel choose = new JLabel("Choisissez votre attribut", JLabel.CENTER);
+		choose.setFont(HomePane.font22);
+		add(choose, c);
 		
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.insets = new Insets(10, 10, 10, 10);
@@ -75,9 +79,10 @@ public class AttributeSelection extends JPanel{
 		add(attr, c);
 		for (int i = 0; i < Attribute.values().length-1; i++) {
 			JButton choice = new JButton(Attribute.values()[i].toString());
+			choice.setFont(HomePane.font14);
 			attrChoice.add(choice);
 			attr.add(choice);
-			choice.addActionListener(al);
+			choice.addActionListener(ccl);
 		}
 		
 		c.ipady=0;
@@ -89,27 +94,32 @@ public class AttributeSelection extends JPanel{
 		add(descrip,c);
 		
 		c.anchor=GridBagConstraints.LAST_LINE_START;
-		c.ipady = 0;
+		c.ipady = 20;
 		c.weighty = 1.0;
 		c.gridx = 0;
 		c.gridwidth = 1;
 		c.gridy = 6;
 		add(prev, c);
-		prev.addActionListener(al);
+		prev.addActionListener(ccl);
 		
 		
 
 		c.anchor=GridBagConstraints.LAST_LINE_END;
-		c.ipady = 0;
+		c.ipady = 20;
 		c.weighty = 1.0;
 		c.gridx = 2;
 		c.gridwidth = 1;
 		c.gridy = 6;
 		add(next, c);
-		next.addActionListener(al);
+		next.addActionListener(ccl);
 		
 		setSelected(0);
+		
+		next.setFont(HomePane.font14);
+		prev.setFont(HomePane.font14);
 	}
+	
+	
 
 	public Player getP() {
 		return p;

@@ -1,10 +1,11 @@
 package model.cases;
 
+import java.awt.Image;
 import java.util.ArrayList;
 
-import model.elements.AbstractElement;
 import model.elements.CaseElement;
 import model.elements.Player;
+import view.menus.HomePane;
 
 public abstract class AbstractCase implements Case{
 
@@ -14,6 +15,10 @@ public abstract class AbstractCase implements Case{
 	protected int y;
 	protected int type;
 	protected boolean traversable,hasABomb=false,cassable=false;
+	
+	public Image getImage(){
+		return HomePane.images.getCase(type).getImage();
+	}
 	
 	public ArrayList<CaseElement> getElements(){
 		return elements;
@@ -31,6 +36,11 @@ public abstract class AbstractCase implements Case{
 		}
 	}
 	
+	public void gele(){
+		type=4;
+		traversable=false;
+	}
+	
 	public void setTraversable(boolean t){
 		traversable=t;
 	}
@@ -41,16 +51,16 @@ public abstract class AbstractCase implements Case{
 	
 	public void ajouterElement(CaseElement ce){
 		elements.add(ce);
-		if(ce.getType().equals("player"))
+		if(ce.getType()==6)
 			containPlayer=true;
-		if(ce.getType().equals("bomb"))
+		if(ce.getType()==4)
 			hasABomb=true;
 	}
 	
 	public Player getJoueur(){
 		if(containPlayer){
 			for(CaseElement ce : getElements()){
-				if(ce.getType().equals("player"))
+				if(ce.getType()==6)
 					return (Player)ce;
 			}
 		}
@@ -59,15 +69,15 @@ public abstract class AbstractCase implements Case{
 	
 	public void removeElement(CaseElement ce){
 		elements.remove(ce);
-		if(ce.getType().equals("player"))
+		if(ce.getType()==6)
 			containPlayer=false;
-		if(ce.getType().equals("bomb"))
+		if(ce.getType()==4)
 			hasABomb=false;
 	}
 	
-	public void removeElementByType(String type){
+	public void removeElementByType(int type){
 		for(CaseElement ce : getElements()){
-			if(ce.getType().equals(type)){
+			if(ce.getType()== type ){
 				getElements().remove(ce);
 				return;
 			}

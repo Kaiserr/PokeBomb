@@ -1,8 +1,7 @@
 package view.menus;
 
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.Graphics;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -13,16 +12,14 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.border.Border;
 
-import util.SpriteLoader;
 import controller.CharacterChoiceListener;
 
 public class CreatePanel extends JPanel {
 
 	private ArrayList<JButton> trainerChoice = new ArrayList<JButton>();
 	private JButton next = new JButton("Suivant");
-	private JButton prev = new JButton("Retour au menu");
+	private JButton prev = new JButton("Menu");
 	private JTextField nameField = new JTextField();
 	private HomePane hp;
 	private int selected=0;
@@ -30,16 +27,19 @@ public class CreatePanel extends JPanel {
 	
 	public CreatePanel(HomePane hp) {
 		this.hp=hp;
-		
+		nameField.setFont(HomePane.font14);
 		setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
 		c.fill = GridBagConstraints.HORIZONTAL;
 
 		c.insets = new Insets(50, 10, 10, 10);
 		c.weightx = 0;
-		c.gridx = 1;
+		c.gridx = 0;
 		c.gridy = 0;
-		add(new JLabel("Choisissez un entraineur", JLabel.CENTER), c);
+		c.gridwidth=3;
+		JLabel choose = new JLabel("Choisissez un entraineur", JLabel.CENTER);
+		choose.setFont(HomePane.font22);
+		add(choose, c);
 
 		c.insets = new Insets(10, 10, 10, 10);
 
@@ -69,7 +69,9 @@ public class CreatePanel extends JPanel {
 		c.gridx = 0;
 		c.gridwidth = 1;
 		c.gridy = 5;
-		add(new JLabel("Quel est votre nom ?", JLabel.CENTER), c);
+		JLabel name =new JLabel("Quel est votre nom ?", JLabel.CENTER);
+		name.setFont(HomePane.font14);
+		add(name, c);
 
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.ipady = 0;
@@ -82,7 +84,8 @@ public class CreatePanel extends JPanel {
 		c.fill = GridBagConstraints.HORIZONTAL;
 
 		c.anchor=GridBagConstraints.LAST_LINE_START;
-		c.ipady = 0;
+		c.ipady = 20;
+		c.ipadx=0;
 		c.weighty = 1.0;
 		c.gridx = 0;
 		c.gridwidth = 1;
@@ -92,7 +95,7 @@ public class CreatePanel extends JPanel {
 		
 
 		c.anchor=GridBagConstraints.LAST_LINE_END;
-		c.ipady = 0;
+		c.ipady = 20;
 		c.weighty = 1.0;
 		c.gridx = 2;
 		c.gridwidth = 1;
@@ -100,17 +103,14 @@ public class CreatePanel extends JPanel {
 		add(next, c);
 		next.addActionListener(ccl);
 		
-		
+		next.setFont(HomePane.font14);
+		prev.setFont(HomePane.font14);
 		
 		setSelected(selected);
 
 	}
 
-	/*
-	 * public void paintComponent(Graphics g) { g.drawImage(new
-	 * ImageIcon("resources/images/home.png").getImage(), 0, 0, getWidth(),
-	 * getHeight(), this); }
-	 */
+
 
 	public ArrayList<JButton> getTrainerChoice() {
 		return trainerChoice;

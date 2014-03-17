@@ -1,5 +1,6 @@
 package view.menus;
 
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -22,14 +23,19 @@ public class HomePane extends JPanel {
 	private Game g = new Game();
 	public static SpriteLoader images = new SpriteLoader();
 	public static StdAudio audio = new StdAudio();
+	public static Font font22=new Font("Serif", Font.BOLD, 22);
+	public static Font font14=new Font("Serif", Font.BOLD, 12);
 
 	public HomePane(JFrame frame) {
 		super(new GridBagLayout());
 		this.frame = frame;
 		GridBagConstraints c = new GridBagConstraints();
 		solo = new JButton("Partie solo");
+		solo.setFont(font14);
 		multi = new JButton("Partie multi");
+		multi.setFont(font14);
 		online = new JButton("Partie en ligne");
+		online.setFont(font14);
 		solo.addActionListener(new HomeListener(frame, this));
 		multi.addActionListener(new HomeListener(frame, this));
 		online.addActionListener(new HomeListener(frame, this));

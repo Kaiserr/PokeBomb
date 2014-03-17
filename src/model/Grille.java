@@ -38,6 +38,7 @@ public class Grille {
 		ArrayList<String> lines = (ArrayList<String>) parser.readFile();
 		this.width = lines.get(0).length();
 		this.height = lines.size();
+		System.out.println(width+ "" + height);
 		plateau = new Case[width][height];
 		casesDepart = new ArrayList<Case>();
 		joueurs=new ArrayList<Player>();
@@ -120,7 +121,7 @@ public class Grille {
 				Case c = getCaseAt(i, j);
 				if (c.getElements().size() > 0) {
 					for (CaseElement ce : c.getElements()) {
-						if (ce.getType().equals("bomb")) {
+						if (ce.getType()==4) {
 							Bomb b = (Bomb) ce;
 							if (b.getProprio() == p)
 								nbBombs++;
