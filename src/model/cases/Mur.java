@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 import model.elements.CaseElement;
 
+/**
+ * Mur incassable
+ * @author Kaiser
+ *
+ */
 public class Mur extends AbstractCase{
 	
 	public Mur(int x,int y){

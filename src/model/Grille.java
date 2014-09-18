@@ -15,8 +15,14 @@ import model.elements.CaseElement;
 import model.elements.Player;
 import model.elements.Potion;
 import util.Direction;
+import util.MapParser;
 import view.game.GrilleGraphique;
 
+/**
+ * Implémentation de la grille du jeu sous la forme de Case[][]
+ * @author Kaiser
+ *
+ */
 public class Grille {
 	private Case[][] plateau;
 	private Case playerCase;

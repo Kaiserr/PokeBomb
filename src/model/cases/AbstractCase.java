@@ -7,6 +7,11 @@ import model.elements.CaseElement;
 import model.elements.Player;
 import view.menus.HomePane;
 
+/**
+ * Case abstraite regroupant les fonctions et attributs communs aux cases
+ * @author Kaiser
+ *
+ */
 public abstract class AbstractCase implements Case{
 
 	protected ArrayList<CaseElement> elements;

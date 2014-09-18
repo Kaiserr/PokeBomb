@@ -16,9 +16,15 @@ import util.StdAudio;
 import model.Game;
 import controller.HomeListener;
 
+/**
+ * Panel de la page d'acceuil !
+ * @author Kaiser
+ *
+ */
 public class HomePane extends JPanel {
 
-	private JButton solo, multi, online, editor;
+
+	private JButton solo, multi, online, editor, exit;
 	private JFrame frame;
 	private Game g = new Game();
 	public static SpriteLoader images = new SpriteLoader();
@@ -39,10 +45,14 @@ public class HomePane extends JPanel {
 		online.setFont(font14);
 		editor=new JButton("Editeur de cartes");
 		editor.setFont(font14);
+		exit = new JButton("Quitter");
+		exit.setFont(font14);
+		
 		solo.addActionListener(hl);
 		multi.addActionListener(hl);
 		online.addActionListener(hl);
 		editor.addActionListener(hl);
+		exit.addActionListener(hl);
 
 		c.fill = GridBagConstraints.BOTH;
 		c.insets = new Insets(290, 5, 5, 5);
@@ -60,6 +70,9 @@ public class HomePane extends JPanel {
 		c.gridx = 0;
 		c.gridy = 6;
 		add(editor, c);
+		c.gridx = 0;
+		c.gridy = 7;
+		add(exit, c);
 
 	}
 
@@ -92,6 +105,23 @@ public class HomePane extends JPanel {
 	public void setOnline(JButton online) {
 		this.online = online;
 	}
+	
+	public JButton getEditor() {
+		return editor;
+	}
+
+	public void setEditor(JButton editor) {
+		this.editor = editor;
+	}
+
+	public JButton getExit() {
+		return exit;
+	}
+
+	public void setExit(JButton exit) {
+		this.exit = exit;
+	}
+
 
 	public JFrame getFrame() {
 		return frame;

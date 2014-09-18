@@ -12,6 +12,11 @@ import javax.swing.JPanel;
 
 import util.CaseType;
 
+/**
+ * Side panel de séléction des différentes cases
+ * @author Kaiser
+ *
+ */
 public class CaseSelector extends JPanel {
 
 	private EditorFrame ef;

@@ -7,6 +7,11 @@ import javax.swing.JPanel;
 import model.Grille;
 import model.cases.Case;
 
+/**
+ * Représentation graphique du plateau de jeu
+ * @author Kaiser
+ *
+ */
 public class GrilleGraphique extends JPanel {
 
 	private Grille g;

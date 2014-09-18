@@ -11,6 +11,12 @@ import model.Game;
 import model.elements.Player;
 import controller.StartListener;
 
+/**
+ * DEPRECATED // A IMPLEMENTER ?
+ * Panel d'infos du jeu
+ * @author Kaiser
+ *
+ */
 public class SidePanel extends JPanel{
 	
 	private Game g;

@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 import model.elements.CaseElement;
 
+/**
+ * Mur traversable
+ * @author Kaiser
+ *
+ */
 public class Vide extends AbstractCase{
 	
 	

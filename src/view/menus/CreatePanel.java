@@ -15,6 +15,11 @@ import javax.swing.JTextField;
 
 import controller.CharacterChoiceListener;
 
+/**
+ * Panel de création de personnage
+ * @author Kaiser
+ *
+ */
 public class CreatePanel extends JPanel {
 
 	private ArrayList<JButton> trainerChoice = new ArrayList<JButton>();

@@ -8,6 +8,11 @@ import model.Grille;
 import model.cases.Case;
 import view.game.CaseGraphique;
 
+/**
+ * Panel représentant la carte éditable
+ * @author Kaiser
+ *
+ */
 public class GrilleEditor extends JPanel{
 	
 	private Grille g;

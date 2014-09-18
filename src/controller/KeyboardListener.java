@@ -10,6 +10,11 @@ import model.elements.Potion;
 import util.Direction;
 import view.game.GrilleGraphique;
 
+/**
+ * Listener des touches clavier pour les déplacements et poser les bombes
+ * @author Kaiser
+ *
+ */
 public class KeyboardListener implements KeyListener{
 	
 	private GrilleGraphique gg;

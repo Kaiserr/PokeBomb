@@ -14,6 +14,11 @@ import util.ImageLoader;
 import util.SpriteLoader;
 import view.menus.HomePane;
 
+/**
+ * Représentation graphique d'une case
+ * @author Kaiser
+ *
+ */
 public class CaseGraphique extends JPanel {
 
 	private Case pos;

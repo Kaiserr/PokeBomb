@@ -7,6 +7,11 @@ import util.ImageLoader;
 import view.menus.HomePane;
 import model.cases.Case;
 
+/**
+ * Le sprite de détonnation d'une bombe !
+ * @author Kaiser
+ *
+ */
 public class Fire extends AbstractElement{
 
 	private Bomb source;

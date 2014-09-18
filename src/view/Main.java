@@ -9,6 +9,11 @@ import javax.swing.UIManager.LookAndFeelInfo;
 
 import view.menus.HomePane;
 
+/**
+ * Lancement du jeu (Main)
+ * @author Kaiser
+ *
+ */
 public class Main {
 
 	public static void main(String[] args) {

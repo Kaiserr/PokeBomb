@@ -17,6 +17,11 @@ import util.BombType;
 import model.elements.Player;
 import controller.CharacterChoiceListener;
 
+/**
+ * Panel de séléction des bombes
+ * @author Kaiser
+ *
+ */
 public class SkillSelection extends JPanel{
 
 	private Player p;

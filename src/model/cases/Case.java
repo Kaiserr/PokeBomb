@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import model.elements.CaseElement;
 import model.elements.Player;
 
+/**
+ * Interface représentant une case du jeu
+ * @author Kaiser
+ *
+ */
 public interface Case {
 	
 	public Image getImage();

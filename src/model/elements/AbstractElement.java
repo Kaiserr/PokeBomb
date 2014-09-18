@@ -6,6 +6,11 @@ import model.cases.Case;
 import util.Direction;
 import util.SpriteLoader;
 
+/**
+ * Elément abstrait regroupant les fonctions et attributs communs a tous les éléments
+ * @author Kaiser
+ *
+ */
 public abstract class AbstractElement implements CaseElement{
 
 	//public static final int HAUT=1,BAS=2,DROITE=3,GAUCHE=4;

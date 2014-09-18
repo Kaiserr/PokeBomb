@@ -7,6 +7,11 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 
+/**
+ * Classe de lecture de sons
+ * @author Kaiser
+ *
+ */
 public class StdAudio implements Runnable
 {
     private boolean running = false;

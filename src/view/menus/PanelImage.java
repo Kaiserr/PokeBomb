@@ -7,6 +7,11 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+/**
+ * Classe étendant JPanel avec une image en fond
+ * @author Kaiser
+ *
+ */
 public class PanelImage extends JPanel{
 	
 	private Image img;

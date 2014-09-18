@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 import model.elements.CaseElement;
 
+/**
+ * Mur de glace
+ * @author Kaiser
+ *
+ */
 public class Ice extends AbstractCase{
 
 	public Ice(int x,int y){

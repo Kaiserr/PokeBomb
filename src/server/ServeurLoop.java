@@ -3,6 +3,11 @@ package server;
 import java.io.IOException;
 import java.net.Socket;
 
+/**
+ * Boucle d'écoute de connexion
+ * @author Kaiser
+ *
+ */
 public class ServeurLoop implements Runnable{
 	private Serveur serv;
 	

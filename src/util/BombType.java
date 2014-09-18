@@ -1,5 +1,10 @@
 package util;
 
+/**
+ * Enumération des différentes bombes et leurs effets
+ * @author Kaiser
+ *
+ */
 public enum BombType {
 	RACAILLOU(0),
 	SMOGO(1),
@@ -52,16 +57,16 @@ public enum BombType {
 		String s="";
 		switch(bomb){
 		case RACAILLOU:
-			s="Projette des Ã©clats de roche, assommant les ennemis touchÃ©s et les empeche de bouger un certain temps.";
+			s="Projette des éclats de roche, assommant les ennemis touchés et les empeche de bouger un certain temps.";
 			break;
 		case SMOGO:
-			s="Empoisonne les ennemis touchÃ©s pendant un certain temps. Ceux-ci subiront plus de dÃ©gats des prochaines bombes.";
+			s="Empoisonne les ennemis touchés pendant un certain temps. Ceux-ci subiront plus de dégats des prochaines bombes.";
 			break;
 		case VOLTORB:
-			s="Paralyse les ennemis touchÃ©s durant un certain temps, les empechants de poser des bombes.";
+			s="Paralyse les ennemis touchés durant un certain temps, les empechants de poser des bombes.";
 			break;
 		case STALGAMIN:
-			s="GÃ©le le sol Ã  l'explosion, crÃ©ant des blocs de glace incassables et empechant les joueurs de passer avant de fondre.";
+			s="Géle le sol à l'explosion, créant des blocs de glace incassables et empechant les joueurs de passer avant de fondre.";
 			break;
 		default:
 			break;

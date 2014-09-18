@@ -2,6 +2,11 @@ package view.game;
 
 import model.elements.Player;
 
+/**
+ * Thread pour les effets de détonnation des bombes
+ * @author Kaiser
+ *
+ */
 public class EffectThread implements Runnable{
 	private boolean[] effects={false,false,false};
 	//Paralysie - Poison - Stun

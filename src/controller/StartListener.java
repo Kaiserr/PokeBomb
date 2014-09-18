@@ -7,6 +7,11 @@ import model.Game;
 import util.StdAudio;
 import view.game.SidePanel;
 
+/**
+ * Listener de lancement du jeu
+ * @author Kaiser
+ *
+ */
 public class StartListener implements ActionListener{
 
 	private Game g;

@@ -10,6 +10,11 @@ import javax.swing.JTextArea;
 import model.Game;
 import controller.CreateListener;
 
+/**
+ * Panel de création de joueur
+ * @author Kaiser
+ *
+ */
 public class CreatePlayerPanel extends JPanel{
 	
 	private Game g;

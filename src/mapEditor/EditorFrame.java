@@ -29,6 +29,11 @@ import util.CaseType;
 import util.SpriteLoader;
 import view.PokeBomb;
 
+/**
+ * Frame de l'éditeur de map + fonctions de lecture et sauvegarde des fichiers map
+ * @author Kaiser
+ *
+ */
 public class EditorFrame extends JFrame {
 
 	private int size = 0;

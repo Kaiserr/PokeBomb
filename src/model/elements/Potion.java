@@ -9,6 +9,11 @@ import util.ImageLoader;
 import view.game.GrilleGraphique;
 import view.menus.HomePane;
 
+/**
+ * Element représentant une potion, soigne un joueur en fonction du niveau (tiré aléatoirement a sa création)
+ * @author Kaiser
+ *
+ */
 public class Potion extends AbstractElement{
 
 	private final int LESSER=1,MEDIUM=2,MAX=3;

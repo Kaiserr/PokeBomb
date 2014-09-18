@@ -9,6 +9,11 @@ import javax.swing.JPanel;
 import util.ImageLoader;
 import model.elements.Player;
 
+/**
+ * Panel de représentation du joueur
+ * @author Kaiser
+ *
+ */
 public class PlayerPanel extends JPanel{
 	
 	private Player p;

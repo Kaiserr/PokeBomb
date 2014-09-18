@@ -9,10 +9,15 @@ import javax.swing.UIManager.LookAndFeelInfo;
 
 import view.menus.HomePane;
 
+/**
+ * Fenetre principale du jeu, contient un HomePane au lancement.
+ * @author Kaiser
+ *
+ */
 public class PokeBomb extends JFrame {
 
 	public PokeBomb() {
-		super("Pok√©Bomb");
+		super("PokÈBomb");
 		try {
 			for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
 				if ("Nimbus".equals(info.getName())) {

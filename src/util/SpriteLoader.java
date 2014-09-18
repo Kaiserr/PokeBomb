@@ -11,6 +11,11 @@ import javax.swing.ImageIcon;
 
 import model.elements.Player;
 
+/**
+ * Chargeur et accesseur statique des sprites
+ * @author Kaiser
+ *
+ */
 public class SpriteLoader {
 
 	public static ArrayList<BufferedImage> trainersIcon = new ArrayList<BufferedImage>();

@@ -7,6 +7,11 @@ import javax.swing.ImageIcon;
 import model.elements.AbstractElement;
 import model.elements.Player;
 
+/**
+ * Chargeur d'image en fonction de la direction
+ * @author Kaiser
+ *
+ */
 public class ImageLoader {
 
 	public Image getPlayer(Direction dir,Player p){

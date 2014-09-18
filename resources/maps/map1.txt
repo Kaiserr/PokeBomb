@@ -1,10 +1,10 @@
 ##########
-#D CCCC D#
+#  CCCC  #
 # C#C#C# #
 #CCCCCCCC#
 #C# ICICC#
 #CC CICCC#
-#CC#C#C#C#
-# CCCCCC #
-#D CCCC D#
+#CC#I#C#C#
+# CCICCC #
+#  CCCC  #
 ##########

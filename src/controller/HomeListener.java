@@ -32,10 +32,15 @@ public class HomeListener implements ActionListener{
 			//TODO
 		}else if(source==pane.getOnline()){
 			//TODO
-		}else{
+		}else if(source == pane.getExit()){
+			frame.setVisible(false);
+			frame.dispose(); 
+		}else if(source == pane.getEditor()){
 			new EditorFrame();
 			frame.setVisible(false);
 			frame.dispose();
+		}else{
+			System.out.println("Heu... Sur quoi t'as cliqué gros ?!");
 		}
 	}
 }

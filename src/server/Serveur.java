@@ -6,6 +6,11 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Initialisation du serveur
+ * @author Kaiser
+ *
+ */
 public class Serveur {
 
 	private ServerSocket serveurSocket = null;

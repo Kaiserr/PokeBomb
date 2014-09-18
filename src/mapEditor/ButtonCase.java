@@ -11,6 +11,11 @@ import model.cases.Case;
 import util.CaseType;
 import view.menus.HomePane;
 
+/**
+ * Bouton avec image pour le changement de type de case de l'éditeur
+ * @author Kaiser
+ *
+ */
 public class ButtonCase extends JButton {
 
 	private Case pos;

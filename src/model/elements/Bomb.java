@@ -13,6 +13,11 @@ import util.SpriteLoader;
 import view.game.GrilleGraphique;
 import view.menus.HomePane;
 
+/**
+ * Elément représentant une bombe, Thread à part pour le timer et l'explosion sans bloquer le jeu
+ * @author Kaiser
+ *
+ */
 public class Bomb extends AbstractElement implements Runnable {
 
 	private Grille plateau;

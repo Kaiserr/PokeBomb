@@ -12,6 +12,11 @@ import view.menus.AttributeSelection;
 import view.menus.CreatePanel;
 import view.menus.SkillSelection;
 
+/**
+ * Listener du panel de création de personnage
+ * @author Kaiser
+ *
+ */
 public class CharacterChoiceListener implements ActionListener{
 
 	private CreatePanel cp;

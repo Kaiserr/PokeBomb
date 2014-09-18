@@ -6,6 +6,11 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+/**
+ * Thread de gestion d'une connexion
+ * @author Kaiser
+ *
+ */
 public class Service implements Runnable {
 	private Socket client;
 	private PrintWriter envoi;

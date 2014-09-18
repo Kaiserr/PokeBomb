@@ -1,5 +1,10 @@
 package util;
 
+/**
+ * Enumération des différents types de cases
+ * @author Kaiser
+ *
+ */
 public enum CaseType {
 
 	VIDE(1),

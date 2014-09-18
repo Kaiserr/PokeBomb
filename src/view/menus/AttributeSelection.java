@@ -17,6 +17,11 @@ import model.elements.Player;
 import util.Attribute;
 import controller.CharacterChoiceListener;
 
+/**
+ * Panel de séléction des capacités
+ * @author Kaiser
+ *
+ */
 public class AttributeSelection extends JPanel{
 	
 	private Player p;

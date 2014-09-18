@@ -1,5 +1,10 @@
 package util;
 
+/**
+ * énumération des capacités que peut choisir le joueur
+ * @author Kaiser
+ *
+ */
 public enum Attribute {
 	PV(0),
 	XP(1),
@@ -47,19 +52,19 @@ public enum Attribute {
 			s="Bonus d'experience";
 			break;
 		case DAMAGE:
-			s="Bonus aux dÃ©gats des bombes";
+			s="Bonus aux dégats des bombes";
 			break;
 		case BOMB:
-			s="Bombe supplÃ©mentaire";
+			s="Bombe supplémentaire";
 			break;
 		case INVISIBILITY:
-			s="InvisibilitÃ©";
+			s="Invisibilité";
 			break;
 		case HEAL:
 			s="Drain de vie";
 			break;
 		case EFFECTREDUCTION:
-			s="RÃ©duction des effets";
+			s="Réduction des effets";
 			break;
 		default:
 			s="Aucun bonus";
@@ -75,19 +80,19 @@ public enum Attribute {
 			s="Commence avec plus de points de vie et gagne plus de points de vie par niveaux.";
 			break;
 		case XP:
-			s="Gagne plus d'expÃ©rience durant la partie.";
+			s="Gagne plus d'expérience durant la partie.";
 			break;
 		case DAMAGE:
-			s="Les bombes infligeront plus de dÃ©gats aux adversaires.";
+			s="Les bombes infligeront plus de dégats aux adversaires.";
 			break;
 		case BOMB:
-			s="Commence la partie avec une bombe supplÃ©mentaire.";
+			s="Commence la partie avec une bombe supplémentaire.";
 			break;
 		case INVISIBILITY:
-			s="Vous deviendrez invisible aux yeux des autres joueurs pendant un court instant lorsque vous subissez des dÃ©gats.";
+			s="Vous deviendrez invisible aux yeux des autres joueurs pendant un court instant lorsque vous subissez des dégats.";
 			break;
 		case HEAL:
-			s="Vous rÃ©cuperer une partie des dÃ©gats infligÃ©s par vos bombes sous la forme de points de vie.";
+			s="Vous récuperer une partie des dégats infligés par vos bombes sous la forme de points de vie.";
 			break;
 		case EFFECTREDUCTION:
 			s="Les effets du type paralysie, poison etc dureront moins longtemps sur vous que sur les autres joueurs.";

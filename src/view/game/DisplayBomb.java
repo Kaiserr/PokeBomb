@@ -6,6 +6,11 @@ import model.elements.Bomb;
 import util.ImageLoader;
 import view.menus.HomePane;
 
+/**
+ * Thread pour les bombes
+ * @author Kaiser
+ *
+ */
 public class DisplayBomb implements Runnable{
 
 	private Thread displayThread;

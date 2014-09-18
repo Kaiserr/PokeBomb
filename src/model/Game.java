@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import util.StdAudio;
 import model.elements.Player;
 
+/**
+ * Initialisation du modéle de jeu: plateau et joueurs
+ * @author Kaiser
+ *
+ */
 public class Game {
 
 	private Grille plateau;

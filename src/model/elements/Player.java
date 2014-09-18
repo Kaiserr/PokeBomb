@@ -7,7 +7,11 @@ import util.Direction;
 import util.SpriteLoader;
 import view.menus.HomePane;
 import model.cases.Case;
-
+/**
+ * Element représentant un joueur
+ * @author Kaiser
+ *
+ */
 public class Player extends AbstractElement{
 	private int skin=3 ,pv,maxPv,lvl, nbBombs, radiusPower,power,xp,maxXp,bomb=0,bombEvol=0;
 	private String nom;
