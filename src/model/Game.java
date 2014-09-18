@@ -18,7 +18,7 @@ public class Game {
 	
 	public Game(){
 		joueurs = new ArrayList<Player>();
-		plateau = new Grille(new File("resources/maps/map1.txt"));
+		plateau = new Grille(new File("resources/maps/map2.txt"));
 		//start();
 	}
 	

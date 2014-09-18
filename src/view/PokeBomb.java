@@ -41,7 +41,7 @@ public class PokeBomb extends JFrame {
 		setIconImage(new ImageIcon("resources/images/BOMB.png").getImage());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
-		setMinimumSize(new Dimension(500, 500));
+		setMinimumSize(new Dimension(550, 550));
 
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setVisible(true);
